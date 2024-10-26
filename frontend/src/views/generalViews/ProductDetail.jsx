@@ -2,10 +2,21 @@
 import Title from '../../components/layouts/Title'
 import Button from '../../components/layouts/Button'
 import QuantitySelector from '../../components/QuantitySelector'
+import { useParams } from 'react-router-dom';
+import { ProductContext } from '../../Context/ProductContext';
+import { useContext } from 'react';
 
-import React from 'react'
 
-export default function SingleProduct() {
+
+
+
+export default function ProductDetail({ productId }) {
+  const { id } = useParams();
+  const { Productos, agregarAlCarritoDetalle } = useContext(ProductContext);
+ 
+ 
+
+
 
   return (
     <>
@@ -24,9 +35,9 @@ export default function SingleProduct() {
            
           </div>
           <div className="md:flex-1 px-4">
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">Product Name</h2>
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">nombre</h2>
             <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed ante justo. Integer euismod libero id mauris malesuada tincidunt.
+            descripcion
             </p>
             <div className="flex mb-4">
               <div className="mr-4">

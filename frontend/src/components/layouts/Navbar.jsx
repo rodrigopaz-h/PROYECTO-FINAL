@@ -1,13 +1,16 @@
+
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <>
-      <div className="navbar bg-base-100 bg-naranjal">
-        <img src="/images/logo cafe.png" alt="Logo" />
-        <div className="flex-1">
-          <a className="btn btn-ghost text-xl">Cafes</a>
-          <a className="btn btn-ghost text-xl">Accesorios</a>
-          <a className="btn btn-ghost text-xl">Equipos</a>
-          <a className="btn btn-ghost text-xl">Ofertas</a>
+      <div className="navbar bg-base-100 bg-naranjal space-x-4">
+      <Link to=""><img src="/images/logo cafe.png" alt="Logo" /></Link>
+        <div className="flex-1 space-x-4">
+          <Link to="productos">Cafés</Link>
+          <Link to="accesorio">Accesorios</Link>
+          <Link to="equipo">Equipos</Link>
+          <Link to="ofertas">Ofertas</Link>
         </div>
         <div className="flex-none gap-2">
           <div className="form-control">

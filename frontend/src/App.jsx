@@ -11,23 +11,28 @@ import PaymentMethod from "./views/checkoutViews/PaymentMethod";
 import ShippingMethod from "./views/checkoutViews/ShippingMethod";
 import ShippingAlert from "./views/checkoutViews/ShippingAlert";
 import SingleProduct from "./views/generalViews/ProductDetail";
-
+import { ProductProvider } from "./Context/ProductContext";
+import ProductDetail from "./views/generalViews/ProductDetail";
+import ProductosTodos from "./views/generalViews/ProductGallery";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/checkout" element={<Checkout />}>
-            <Route index element={<Navigate to="direccion" replace />} />
-            <Route path="direccion" element={<ShippingForm/>} />
-            <Route path="envio" element={< ShippingMethod/>}/>
-            <Route path="pago" element={<PaymentMethod />}/>
-        </Route>
-        <Route path="alerta" element={<ShippingAlert />}/>
-        <Route path="producto" element={<SingleProduct/>}/>
-      </Routes>
+      <ProductProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/checkout" element={<Checkout />}>
+              <Route index element={<Navigate to="direccion" replace />} />
+              <Route path="direccion" element={<ShippingForm/>} />
+              <Route path="envio" element={< ShippingMethod/>}/>
+              <Route path="pago" element={<PaymentMethod />}/>
+          </Route>
+          <Route path="alerta" element={<ShippingAlert />}/>
+          <Route path="producto" element={<ProductDetail/>}/>
+          <Route path="galeria" element={<ProductosTodos/>}/>
+        </Routes>
+      </ProductProvider>
     </>
   );
 }

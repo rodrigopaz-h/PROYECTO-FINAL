@@ -4,6 +4,6 @@ h1, h2, h3, h4, h5{
     font-family: "Dongle", serif;
 }
 
-p{
+p, a, body{
     font-family: "Quicksand", serif;
 }
