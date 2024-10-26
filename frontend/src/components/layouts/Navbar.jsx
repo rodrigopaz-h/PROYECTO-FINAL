@@ -7,10 +7,11 @@ const Navbar = () => {
       <div className="navbar bg-base-100 bg-naranjal space-x-4">
       <Link to=""><img src="/images/logo cafe.png" alt="Logo" /></Link>
         <div className="flex-1 space-x-4">
-          <Link to="productos">Cafés</Link>
-          <Link to="accesorio">Accesorios</Link>
+          <Link to="cafes">Cafés</Link>
+          <Link to="accesorios">Accesorios</Link>
           <Link to="equipo">Equipos</Link>
           <Link to="ofertas">Ofertas</Link>
+          <Link to="todos">Todos</Link>
         </div>
         <div className="flex-none gap-2">
           <div className="form-control">

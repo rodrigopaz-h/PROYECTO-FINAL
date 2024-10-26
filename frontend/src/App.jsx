@@ -13,7 +13,8 @@ import ShippingAlert from "./views/checkoutViews/ShippingAlert";
 import SingleProduct from "./views/generalViews/ProductDetail";
 import { ProductProvider } from "./Context/ProductContext";
 import ProductDetail from "./views/generalViews/ProductDetail";
-import ProductosTodos from "./views/generalViews/ProductGallery";
+ import ProductGallery from "./views/generalViews/ProductGallery";
+ import ProductCategory from "./views/generalViews/ProductCategory";
 
 function App() {
   return (
@@ -29,8 +30,10 @@ function App() {
               <Route path="pago" element={<PaymentMethod />}/>
           </Route>
           <Route path="alerta" element={<ShippingAlert />}/>
-          <Route path="producto" element={<ProductDetail/>}/>
-          <Route path="galeria" element={<ProductosTodos/>}/>
+          <Route path="producto/:id" element={<ProductDetail/>}/>
+          <Route path="todos" element={<ProductGallery />} /> 
+          <Route path="cafes" element={<ProductCategory />} />
+          <Route path="accesorios" element={<ProductCategory/>} />
         </Routes>
       </ProductProvider>
     </>
