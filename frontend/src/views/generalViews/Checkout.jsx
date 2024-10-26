@@ -7,7 +7,7 @@ import {  Link, Outlet} from "react-router-dom";
 export default function Checkout() {
    
   return (
-    <div>
+    <div className='h-screen'>
         <Title title='Tu compra'/>
         <div className="bg-gray-100 ">
             <div className="w-full max-w-7xl mx-auto p-8 grid grid-cols-1 md:grid-cols-2 gap-8">

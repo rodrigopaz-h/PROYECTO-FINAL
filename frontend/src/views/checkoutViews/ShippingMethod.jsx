@@ -1,4 +1,7 @@
 import React from 'react';
+import Button from '../../components/layouts/Button';
+import { Link} from "react-router-dom";
+
 
 export default function ShippingMethod() {
 
@@ -32,6 +35,9 @@ export default function ShippingMethod() {
           <span className="text-gray-700 dark:text-white">Retiro en tienda</span>
           <p className="ml-8 text-sm text-gray-500 dark:text-gray-400">2 días hábiles</p>
         </label>
+        <Link to="/checkout/pago">
+            <Button text='Continuar' /> 
+        </Link>
       </div>
     </div>
   );
