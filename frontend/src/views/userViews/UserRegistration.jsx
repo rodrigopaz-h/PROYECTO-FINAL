@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../context/UserContext';
 
 const UserRegistration = () => {
   const navigate = useNavigate();
+  const { registerUser } = useContext(UserContext); // Obtiene la función registerUser del contexto
 
   // Función para manejar el envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Aquí puedes agregar la lógica de registro, como enviar los datos a tu backend.
-    
-    // Una vez registrado, redirigir a UserLogin
+    // Obtén los datos del formulario
+    const userData = {
+      firstName: e.target['first-name'].value,
+      lastName: e.target['last-name'].value,
+      email: e.target['email'].value,
+    };
+
+    // Guarda el usuario en el contexto
+    registerUser(userData);
+
+    // Redirige a la página de inicio de sesión
     navigate('/login');
   };
 
@@ -29,6 +39,7 @@ const UserRegistration = () => {
             type="text"
             id="first-name"
             placeholder="Ingresa tu nombre"
+            required
           />
         </div>
 
@@ -42,6 +53,7 @@ const UserRegistration = () => {
             type="text"
             id="last-name"
             placeholder="Ingresa tu apellido"
+            required
           />
         </div>
 
@@ -55,6 +67,7 @@ const UserRegistration = () => {
             type="email"
             id="email"
             placeholder="Ingresa tu email"
+            required
           />
         </div>
 
@@ -68,6 +81,7 @@ const UserRegistration = () => {
             type="password"
             id="password"
             placeholder="Ingresa contraseña"
+            required
           />
           <p className="text-xs text-gray-500 mt-1">
             La contraseña debe contener caracteres en mayúsculas y minúsculas, números y símbolos.
@@ -84,6 +98,7 @@ const UserRegistration = () => {
             type="password"
             id="confirm-password"
             placeholder="Ingresa contraseña"
+            required
           />
         </div>
 
