@@ -7,7 +7,7 @@ export default function ShippingForm() {
     return (
         <div>
             <div className="mb-6">
-                <h2 className="text-xl font-semibold text-gray-700 dark:text-white mb-2">Shipping Address</h2>
+                <h2 className="text-xl font-semibold text-gray-700 dark:text-white mb-2">Dirección de envío</h2>
                 <div className="grid grid-cols-2 gap-4">
                     <div>
                         <label htmlFor="first_name" className="block text-gray-700 dark:text-white mb-1">First Name</label>

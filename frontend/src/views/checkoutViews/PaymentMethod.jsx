@@ -34,7 +34,7 @@ export default function PaymentMethod() {
             />
         </div>
         </div>
-        
+        <Button text='Continuar' to='/alerta' /> 
     </div>
   )
 }

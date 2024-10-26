@@ -9,6 +9,9 @@ import Checkout from "./views/generalViews/Checkout";
 import ShippingForm from "./views/checkoutViews/ShippingForm";
 import PaymentMethod from "./views/checkoutViews/PaymentMethod";
 import ShippingMethod from "./views/checkoutViews/ShippingMethod";
+import ShippingAlert from "./views/checkoutViews/ShippingAlert";
+import SingleProduct from "./views/generalViews/ProductDetail";
+
 
 function App() {
   return (
@@ -22,6 +25,8 @@ function App() {
             <Route path="envio" element={< ShippingMethod/>}/>
             <Route path="pago" element={<PaymentMethod />}/>
         </Route>
+        <Route path="alerta" element={<ShippingAlert />}/>
+        <Route path="producto" element={<SingleProduct/>}/>
       </Routes>
     </>
   );

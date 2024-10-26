@@ -1,13 +1,13 @@
+import { Link } from "react-router-dom";
 
-
-export default function Button({ text, onClick }) {
+export default function Button({ text, onClick, to }) {
   return (
-    <button
+    <Link   to={to}
             onClick={onClick}
-            className="bg-blue-500 text-white py-2 px-4 rounded"
+            className="bg-verde text-center text-white py-2 px-4 mt-5 mb-5 inline-block"
         >
             {text}
-        </button>
+        </Link>
    
   );
 }
