@@ -1,9 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const UserRegistration = () => {
+  const navigate = useNavigate();
+
+  // Función para manejar el envío del formulario
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // Aquí puedes agregar la lógica de registro, como enviar los datos a tu backend.
+    
+    // Una vez registrado, redirigir a UserLogin
+    navigate('/login');
+  };
+
   return (
     <div className="flex justify-center items-center h-screen">
-      <form className="w-full max-w-lg bg-white p-8 shadow-md rounded">
+      <form onSubmit={handleSubmit} className="w-full max-w-lg bg-white p-8 shadow-md rounded">
         <h2 className="text-2xl font-semibold mb-6">Crea tu cuenta</h2>
         
         {/* Campo de Primer Nombre */}

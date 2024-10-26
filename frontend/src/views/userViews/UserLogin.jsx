@@ -1,10 +1,22 @@
-// Acceso de usuario
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const UserLogin = () => {
+  const navigate = useNavigate();
+
+  // Función para manejar el envío del formulario de inicio de sesión
+  const handleLogin = (e) => {
+    e.preventDefault();
+    
+    // Aquí puedes agregar la lógica de autenticación, como verificar el email y contraseña.
+    
+    // Una vez autenticado correctamente, redirigir a la vista principal
+    navigate('/');
+  };
+
   return (
     <div className="flex justify-center items-center h-screen">
-      <form className="w-full max-w-md bg-white p-8 shadow-md rounded">
+      <form onSubmit={handleLogin} className="w-full max-w-md bg-white p-8 shadow-md rounded">
         <h2 className="text-2xl font-semibold mb-6">Accede a tu cuenta</h2>
         
         {/* Campo de Email */}
