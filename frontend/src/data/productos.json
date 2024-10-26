@@ -1,0 +1,185 @@
+
+ [
+      {
+        "id": 1,
+        "categoria_id": 1,
+        "imagen": "https://example.com/images/cafe1.jpg",
+        "nombre": "Café Arábica",
+        "descripcion": "Café suave y aromático de alta calidad.",
+        "formato": "250g",
+        "precio": 4500,
+        "stock": 20,
+        "procedencia": "Colombia",
+        "categoria": "Café"
+      },
+      {
+        "id": 2,
+        "categoria_id": 1,
+        "imagen": "https://example.com/images/cafe2.jpg",
+        "nombre": "Café Robusta",
+        "descripcion": "Café fuerte con un sabor intenso.",
+        "formato": "500g",
+        "precio": 5000,
+        "stock": 15,
+        "procedencia": "Brasil",
+        "categoria": "Café"
+      },
+      {
+        "id": 3,
+        "categoria_id": 1,
+        "imagen": "https://example.com/images/cafe3.jpg",
+        "nombre": "Café Peruano",
+        "descripcion": "Café con notas de frutas y chocolate.",
+        "formato": "250g",
+        "precio": 4700,
+        "stock": 30,
+        "procedencia": "Perú",
+        "categoria": "Café"
+      },
+      {
+        "id": 4,
+        "categoria_id": 1,
+        "imagen": "https://example.com/images/cafe4.jpg",
+        "nombre": "Café Espresso",
+        "descripcion": "Café concentrado y con cuerpo.",
+        "formato": "250g",
+        "precio": 6000,
+        "stock": 10,
+        "procedencia": "Italia",
+        "categoria": "Café"
+      },
+      {
+        "id": 5,
+        "categoria_id": 1,
+        "imagen": "https://example.com/images/cafe5.jpg",
+        "nombre": "Café Orgánico",
+        "descripcion": "Café cultivado sin pesticidas ni químicos.",
+        "formato": "500g",
+        "precio": 5500,
+        "stock": 25,
+        "procedencia": "México",
+        "categoria": "Café"
+      },
+      {
+        "id": 6,
+        "categoria_id": 1,
+        "imagen": "https://example.com/images/cafe6.jpg",
+        "nombre": "Café Tostado Medio",
+        "descripcion": "Café con un equilibrio perfecto entre sabor y aroma.",
+        "formato": "250g",
+        "precio": 4800,
+        "stock": 18,
+        "procedencia": "Etiopía",
+        "categoria": "Café"
+      },
+      {
+        "id": 7,
+        "categoria_id": 1,
+        "imagen": "https://example.com/images/cafe7.jpg",
+        "nombre": "Café Frío",
+        "descripcion": "Café preparado y servido frío.",
+        "formato": "500ml",
+        "precio": 3000,
+        "stock": 12,
+        "procedencia": "Colombia",
+        "categoria": "Café"
+      },
+      {
+        "id": 8,
+        "categoria_id": 1,
+        "imagen": "https://example.com/images/cafe8.jpg",
+        "nombre": "Café Gourmet",
+        "descripcion": "Café premium para los amantes del buen café.",
+        "formato": "250g",
+        "precio": 7500,
+        "stock": 8,
+        "procedencia": "Jamaica",
+        "categoria": "Café"
+      },
+      {
+        "id": 9,
+        "categoria_id": 1,
+        "imagen": "https://example.com/images/cafe9.jpg",
+        "nombre": "Café Mocha",
+        "descripcion": "Café con sabor a chocolate.",
+        "formato": "500g",
+        "precio": 6000,
+        "stock": 14,
+        "procedencia": "Venezuela",
+        "categoria": "Café"
+      },
+      {
+        "id": 10,
+        "categoria_id": 1,
+        "imagen": "https://example.com/images/cafe10.jpg",
+        "nombre": "Café de Olla",
+        "descripcion": "Café tradicional mexicano con especias.",
+        "formato": "500g",
+        "precio": 5200,
+        "stock": 11,
+        "procedencia": "México",
+        "categoria": "Café"
+      },
+      {
+        "id": 11,
+        "categoria_id": 2,
+        "imagen": "https://example.com/images/accesorio1.jpg",
+        "nombre": "Espresso Maker",
+        "descripcion": "Máquina para preparar espresso en casa.",
+        "formato": "1 unidad",
+        "precio": 15000,
+        "stock": 5,
+        "procedencia": "China",
+        "categoria": "Accesorios"
+      },
+      {
+        "id": 12,
+        "categoria_id": 2,
+        "imagen": "https://example.com/images/accesorio2.jpg",
+        "nombre": "Filtros de Café",
+        "descripcion": "Filtros desechables para preparar café.",
+        "formato": "100 unidades",
+        "precio": 2000,
+        "stock": 50,
+        "procedencia": "Brasil",
+        "categoria": "Accesorios"
+      },
+      {
+        "id": 13,
+        "categoria_id": 2,
+        "imagen": "https://example.com/images/accesorio3.jpg",
+        "nombre": "Molino de Café",
+        "descripcion": "Molino manual para café.",
+        "formato": "1 unidad",
+        "precio": 8000,
+        "stock": 10,
+        "procedencia": "Japón",
+        "categoria": "Accesorios"
+      },
+      {
+        "id": 14,
+        "categoria_id": 2,
+        "imagen": "https://example.com/images/accesorio4.jpg",
+        "nombre": "Taza de Café",
+        "descripcion": "Taza de cerámica para café.",
+        "formato": "1 unidad",
+        "precio": 3500,
+        "stock": 20,
+        "procedencia": "Italia",
+        "categoria": "Accesorios"
+      },
+      {
+        "id": 15,
+        "categoria_id": 2,
+        "imagen": "https://example.com/images/accesorio5.jpg",
+        "nombre": "Termo para Café",
+        "descripcion": "Termo de acero inoxidable.",
+        "formato": "500ml",
+        "precio": 7000,
+        "stock": 8,
+        "procedencia": "Corea del Sur",
+        "categoria": "Accesorios"
+      }
+    ]
+
+  
