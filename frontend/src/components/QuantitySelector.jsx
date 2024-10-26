@@ -15,14 +15,14 @@ const QuantitySelector = () => {
     <td className="py-4">
       <div className="flex items-center">
         <button
-          className="border rounded-md py-2 px-4 mr-2 bg-white"
+          className="border rounded-md py-3 px-4 mr-2 bg-white"
           onClick={handleDecrement}
         >
           -
         </button>
         <span className="text-center w-8">{quantity}</span>
         <button
-          className="border rounded-md py-2 px-4 ml-2 bg-white"
+          className="border rounded-md py-3 px-4 ml-2 bg-white"
           onClick={handleIncrement}
         >
           +

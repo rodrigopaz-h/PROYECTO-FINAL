@@ -35,34 +35,6 @@ export default function ShippingForm() {
                         className="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none"
                     />
                 </div>
-
-                <div className="mt-4">
-                    <label htmlFor="city" className="block text-gray-700 dark:text-white mb-1">City</label>
-                    <input
-                        type="text"
-                        id="city"
-                        className="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none"
-                    />
-                </div>
-
-                <div className="grid grid-cols-2 gap-4 mt-4">
-                    <div>
-                        <label htmlFor="state" className="block text-gray-700 dark:text-white mb-1">State</label>
-                        <input
-                            type="text"
-                            id="state"
-                            className="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none"
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="zip" className="block text-gray-700 dark:text-white mb-1">ZIP Code</label>
-                        <input
-                            type="text"
-                            id="zip"
-                            className="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none"
-                        />
-                    </div>
-                </div>
                 <Link to="/checkout/envio">
                     <Button text='Continuar' /> 
                 </Link>
