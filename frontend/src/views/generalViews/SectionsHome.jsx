@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 export default function SectionsHome({titulo,descripcion, tipoSeccion, fondo}) {
   return (
-        <div className= {`mx-auto w-full relative pt-10 ${fondo}`}>
+        <div className= {`mx-auto w-full relative pt-10 pb-10 ${fondo}`}>
             <div className="max-w-xl mx-auto text-center lg:text-balance">
             <h2 className="text-xl leading-tight tracking-tight sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-base-900 lg:text-balance">
                 {titulo}

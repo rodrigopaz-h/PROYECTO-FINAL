@@ -9,7 +9,7 @@ export default {
         limon: '#C8C346', // lemongrass
         verde: '#1F532F', // caribben
         tierra: '#705D63', // caribben
-        naranjal: '#FFE7DC', // paprika-light
+        naranjal: '#FFF5E9', // paprika-light
         amarillol: '#FFF2DB', // tumeric-light
         limonl: '#FFFC8F', // lemongrass-light
         verdel: '#C5FFD7', // caribben-light
