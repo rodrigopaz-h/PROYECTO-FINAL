@@ -9,7 +9,6 @@ import Card from "../../components/layouts/Card";
 const ProductGallery = () => {
 
     const { Productos, agregarAlCarrito } = useContext(ProductContext);
-    console.log(Productos);
 
     return (
         <div>

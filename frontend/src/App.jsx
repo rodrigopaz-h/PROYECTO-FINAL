@@ -14,8 +14,8 @@ import { ProductProvider } from "./Context/ProductContext";
 import ProductDetail from "./views/generalViews/ProductDetail";
  import ProductGallery from "./views/generalViews/ProductGallery";
  import ProductCategory from "./views/generalViews/ProductCategory";
- import ShoppingDetail from "./views/checkoutViews/ShoppingDetail";
- import ShoppingCart from "./views/generalViews/ShoppingCart";
+import Categoria from "./views/generalViews/Categoria";
+import ShoppingCart from "./views/generalViews/ShoppingCart";
 
 function App() {
   return (
@@ -36,6 +36,7 @@ function App() {
           <Route path="cafes" element={<ProductCategory />} />
           <Route path="accesorios" element={<ProductCategory/>} />
           <Route path="carrito" element={<ShoppingCart/>} />
+          <Route path="prueba" element={<Categoria/>} />
         </Routes>
       </ProductProvider>
     </>
