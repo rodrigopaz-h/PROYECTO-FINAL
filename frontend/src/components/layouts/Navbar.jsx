@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ProductContext } from "../../Context/ProductContext";
 import { useContext } from "react";
+import Logo from "../../../public/images/logo.svg"
 
 
 const Navbar = () => {
@@ -9,7 +10,9 @@ const Navbar = () => {
   return (
     <>
       <div className="navbar bg-base-100 bg-naranjal space-x-4">
-      <Link to=""><img src="/images/logo cafe.png" alt="Logo" /></Link>
+      <Link to="">
+        <img src={Logo} alt="Logo" />
+      </Link>
         <div className="flex-1 space-x-4">
           <Link to="cafes">Cafés</Link>
           <Link to="accesorios">Accesorios</Link>
@@ -96,13 +99,13 @@ const Navbar = () => {
           </div>
           <span>¡ENVÍO GRATIS A PARTIR DE 30.000 CLP!</span>
           <div className="flex gap-4">
-            <div className="bg-white text-naranja rounded-full p-2">
+            <div className="bg-amarillo text-white rounded-full p-2 w-10 rounded-full">
               <i className="fab fa-twitter"></i>
             </div>
-            <div className="bg-white text-naranja rounded-full p-2">
+            <div className="bg-amarillo text-white rounded-full p-2 w-10 rounded-full">
               <i className="fab fa-youtube"></i>
             </div>
-            <div className="bg-white text-naranja rounded-full p-2">
+            <div className="bg-amarillo text-white rounded-full p-2 w-10 rounded-full">
               <i className="fab fa-linkedin"></i>
             </div>
           </div>

@@ -1,7 +1,8 @@
 import Title from "../../components/layouts/Title"
 import { Link } from "react-router-dom"
-import { useContext,useState } from "react"
+import { useContext } from "react"
 import { ProductContext } from "../../Context/ProductContext"
+import Button from "../../components/layouts/Button"
 
 export default function ShoppingCart() {
 
@@ -19,9 +20,9 @@ export default function ShoppingCart() {
   return (
     <>
     <Title title='Carrito de compras'/>
-    <div className="container mx-auto mt-10">
-            <div className="sm:flex shadow-md my-10">
-                <div className="w-full sm:w-3/4 bg-white px-10 py-10">
+    <div className="w-full bg-gray-100 mx-auto p-10">
+            <div className="sm:flex gap-8">
+                <div className="w-full sm:w-3/4 bg-white p-8 rounded-lg shadow-md border">
                     <div className="flex justify-between border-b pb-8">
                         <h1 className="font-semibold text-2xl">Detalles de carrito</h1>
                         <h2 className="font-semibold text-2xl">{Carrito.length} Items</h2>
@@ -69,7 +70,7 @@ export default function ShoppingCart() {
                     </Link>
                 </div>
 
-                <div id="summary" className="w-full sm:w-1/4 md:w-1/2 px-8 py-10">
+                <div id="summary" className="w-full sm:w-1/4 md:w-1/2 bg-white p-8 rounded-lg shadow-md border">
                     <h1 className="font-semibold text-2xl border-b pb-8">Resumen de compra</h1>
                     <div className="flex justify-between mt-10 mb-5">
                         <span className="font-semibold text-sm uppercase">Total de productos:</span>
@@ -80,7 +81,7 @@ export default function ShoppingCart() {
                             <span>Costo total:</span>
                             <span>${calcularTotalCarrito()}</span>
                         </div>
-                        <button className="bg-verde font-semibold hover:bg-verde py-3 text-sm text-white uppercase w-full">Pagar</button>
+                        <Button text='PAGAR' to='/checkout' />
                     </div>
                 </div>
             </div>
