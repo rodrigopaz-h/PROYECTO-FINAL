@@ -1,22 +1,38 @@
 // Producto
 import Title from '../../components/layouts/Title'
 import Button from '../../components/layouts/Button'
-import QuantitySelector from '../../components/QuantitySelector'
-import { useParams } from 'react-router-dom';
-import { ProductContext } from '../../Context/ProductContext';
-import { useContext } from 'react';
+import { useParams } from 'react-router-dom'
+import { ProductContext } from '../../Context/ProductContext'
+import { useContext,useState, useEffect } from 'react'
+import QuantitySelector from '../../components/layouts/QuantitySelector'
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 
 export default function ProductDetail({ productId }) {
+  const navigate = useNavigate();
   const { id } = useParams();
-  const { Productos, agregarAlCarritoDetalle } = useContext(ProductContext);
+  const { Productos, agregarAlCarritoDetalle, Carrito } = useContext(ProductContext);
   const filteredProducto = Productos.find((producto) => producto.id === Number(id));
-  console.log(id);
-  console.log(Productos);
+
+
+console.log(Carrito)
  
+  //manejar la cantidad
+  const [cantidad, setCantidad] = useState(1);
+
+  // Manejar la acción de agregar al carrito
+  const handleAgregarAlCarrito = () => {
+    if (filteredProducto) {
+      agregarAlCarritoDetalle(filteredProducto.id, cantidad);
+      setCantidad(1);  
+    } else {
+      console.error("Producto no encontrado para agregar al carrito.");
+    }
+  };
+
   if (!filteredProducto) {
     return <p>No se encuentra</p>
   }
@@ -32,27 +48,27 @@ export default function ProductDetail({ productId }) {
               <div className="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
                 <img
                   className="w-full h-full object-cover"
-                  src={filteredProducto.imagen} // Imagen del producto
-                  alt={filteredProducto.nombre} // Nombre del producto como alt
+                  src={filteredProducto.imagen}
+                  alt={filteredProducto.nombre}
                 />
               </div>
             </div>
             <div className="md:flex-1 px-4">
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">{filteredProducto.nombre}</h2> {/* Nombre del producto */}
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">{filteredProducto.nombre}</h2>
               <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-                {filteredProducto.descripcion} {/* Descripción del producto */}
+                {filteredProducto.descripcion}
               </p>
               <div className="flex mb-4">
                 <div className="mr-4">
                   <span className="font-bold text-gray-700 dark:text-gray-300">Precio:</span>
-                  <span className="text-gray-600 dark:text-gray-300">${filteredProducto.precio}</span> {/* Precio del producto */}
+                  <span className="text-gray-600 dark:text-gray-300">${filteredProducto.precio}</span>
                 </div>
                 <div>
                   <span className="font-bold text-gray-700 dark:text-gray-300">Disponibilidad:</span>
-                  <span className="text-gray-600 dark:text-gray-300">{filteredProducto.disponibilidad ? 'En Stock' : 'Agotado'}</span> {/* Disponibilidad */}
+                  <span className="text-gray-600 dark:text-gray-300">{filteredProducto.stock > 0 ? 'En Stock' : 'Agotado'}</span>
                 </div>
               </div>
-              <div className="mb-4">
+              {/* <div className="mb-4">
                 <span className="font-bold text-gray-700 dark:text-gray-300">Selecciona tamaño:</span>
                 <div className="flex items-center mt-2">
                   {['S', 'M', 'L'].map(size => (
@@ -64,20 +80,23 @@ export default function ProductDetail({ productId }) {
                     </button>
                   ))}
                 </div>
-              </div>
+              </div> */}
               <div className="flex items-end">
                 <div className="mr-10">
                   <span className="text-center text-sm font-semibold text-gray-700 dark:text-white mb-2">Cantidad:</span>
-                  <QuantitySelector />
+                  <QuantitySelector quantity={cantidad} setQuantity={setCantidad} />
                 </div>
                 <div>
-                  <Button text='Agregar al carro' to='/checkout' onClick={() => agregarAlCarritoDetalle(filteredProducto)} /> {/* Agregar al carrito */}
+                  <Button text='Agregar al carro' onClick={handleAgregarAlCarrito} /> 
                 </div>
               </div>
+              {Carrito.length > 0 && (
+                <Button text="Pagar" bg="bg-naranja" to="/carrito" />
+              )}
               <div>
                 <span className="font-bold text-gray-700 dark:text-gray-300">Descripción del producto:</span>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
-                  {filteredProducto.descripcion} {/* Descripción del producto adicional */}
+                  {filteredProducto.descripcion}
                 </p>
               </div>
             </div>

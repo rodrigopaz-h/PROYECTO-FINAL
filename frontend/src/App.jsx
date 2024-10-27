@@ -10,11 +10,12 @@ import ShippingForm from "./views/checkoutViews/ShippingForm";
 import PaymentMethod from "./views/checkoutViews/PaymentMethod";
 import ShippingMethod from "./views/checkoutViews/ShippingMethod";
 import ShippingAlert from "./views/checkoutViews/ShippingAlert";
-import SingleProduct from "./views/generalViews/ProductDetail";
 import { ProductProvider } from "./Context/ProductContext";
 import ProductDetail from "./views/generalViews/ProductDetail";
  import ProductGallery from "./views/generalViews/ProductGallery";
  import ProductCategory from "./views/generalViews/ProductCategory";
+ import ShoppingDetail from "./views/checkoutViews/ShoppingDetail";
+ import ShoppingCart from "./views/generalViews/ShoppingCart";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="todos" element={<ProductGallery />} /> 
           <Route path="cafes" element={<ProductCategory />} />
           <Route path="accesorios" element={<ProductCategory/>} />
+          <Route path="carrito" element={<ShoppingCart/>} />
         </Routes>
       </ProductProvider>
     </>

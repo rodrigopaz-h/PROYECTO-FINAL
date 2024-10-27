@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
-const QuantitySelector = () => {
-  const [quantity, setQuantity] = useState(1);
-
+const QuantitySelector = ({quantity, setQuantity}) => {
   const handleIncrement = () => {
     setQuantity(prevQuantity => prevQuantity + 1);
   };
@@ -10,7 +8,6 @@ const QuantitySelector = () => {
   const handleDecrement = () => {
     setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1));
   };
-
   return (
     <td className="py-4">
       <div className="flex items-center">
