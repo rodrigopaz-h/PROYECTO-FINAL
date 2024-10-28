@@ -40,6 +40,7 @@ export const ProductProvider = ({ children }) => {
             }
         }
     };
+    
 
     const aumentarCantidad = (id) => {
         const nuevoCarrito = Carrito.map((item) =>
@@ -60,10 +61,12 @@ export const ProductProvider = ({ children }) => {
         setCarrito(nuevoCarrito);
     };
 
+    /*Total de precios de productos*/
     const calcularTotalCarrito = () => {
         return Carrito.reduce((total, item) => total + item.precio * item.cantidad, 0);
     };
 
+    /*Total de productos*/
     const calcularTotalCantidadCarrito = () => {
         return Carrito.reduce((totalCantidad, item) => totalCantidad + item.cantidad, 0);
     };

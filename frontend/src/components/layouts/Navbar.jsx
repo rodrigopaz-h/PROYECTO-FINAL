@@ -1,20 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { ProductContext } from "../../Context/ProductContext";
+import { useContext } from "react";
+import Logo from "../../../public/images/logo.svg"
+
 
 const Navbar = () => {
+
+  const {Carrito} = useContext(ProductContext)
   return (
     <>
-      <div className="navbar bg-base-100 bg-naranjal">
-        {/* Logo con enlace a la página principal */}
-        <Link to="/">
-          <img src="/images/logo cafe.png" alt="Logo" className="h-10 w-auto" />
-        </Link>
-        
-        <div className="flex-1">
-          <Link to="/" className="btn btn-ghost text-xl">Cafes</Link>
-          <Link to="/" className="btn btn-ghost text-xl">Accesorios</Link>
-          <Link to="/" className="btn btn-ghost text-xl">Equipos</Link>
-          <Link to="/" className="btn btn-ghost text-xl">Ofertas</Link>
+      <div className="navbar bg-base-100 bg-naranjal space-x-4">
+      <Link to="">
+        <img src={Logo} alt="Logo" />
+      </Link>
+        <div className="flex-1 space-x-4">
+          <Link to="cafes">Cafés</Link>
+          <Link to="accesorios">Accesorios</Link>
+          <Link to="todos">Todos</Link>
         </div>
         
         <div className="flex-none gap-2">
@@ -63,32 +65,26 @@ const Navbar = () => {
           {/* Carrito de compras */}
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
-              <div className="indicator">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  className="inline-block h-5 w-5 stroke-current"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 3h2l.4 2M7 13h10l1.35-6.45A1 1 0 0 0 17.4 5H6.6a1 1 0 0 0-.99.85L4.2 12H7zm5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm5 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
-                  />
-                </svg>
-                <span className="badge badge-sm indicator-item">0</span>
-                {/* Número de items en el carrito */}
-              </div>
+              <Link to='carrito'>
+                <div className="indicator">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    className="inline-block h-5 w-5 stroke-current"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M3 3h2l.4 2M7 13h10l1.35-6.45A1 1 0 0 0 17.4 5H6.6a1 1 0 0 0-.99.85L4.2 12H7zm5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm5 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
+                    />
+                  </svg>
+                  <span className="badge badge-sm indicator-item">{Carrito.length}</span>
+                  {/* Número de items en el carrito */}
+                </div>
+              </Link>
             </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-            >
-              <li><a>Item 1</a></li>
-              <li><a>Item 2</a></li>
-              <li><a>Checkout</a></li>
-            </ul>
           </div>
         </div>
       </div>
@@ -101,13 +97,13 @@ const Navbar = () => {
           </div>
           <span>¡ENVÍO GRATIS A PARTIR DE 30.000 CLP!</span>
           <div className="flex gap-4">
-            <div className="bg-white text-naranja rounded-full p-2">
+            <div className="bg-amarillo text-white rounded-full p-2 w-10 rounded-full">
               <i className="fab fa-twitter"></i>
             </div>
-            <div className="bg-white text-naranja rounded-full p-2">
+            <div className="bg-amarillo text-white rounded-full p-2 w-10 rounded-full">
               <i className="fab fa-youtube"></i>
             </div>
-            <div className="bg-white text-naranja rounded-full p-2">
+            <div className="bg-amarillo text-white rounded-full p-2 w-10 rounded-full">
               <i className="fab fa-linkedin"></i>
             </div>
           </div>

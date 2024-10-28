@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Los beneficios del café para la salud",
+    "description": "El café no solo es una bebida popular, sino que también aporta antioxidantes y puede mejorar el estado de alerta mental.",
+    "imgSrc": "../../images/blogimage1.png",
+    "authorImg": "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    "authorName": "María Pérez",
+    "link": "#"
+  },
+  {
+    "title": "El arte de preparar un espresso perfecto",
+    "description": "Aprende los secretos para crear un espresso perfecto en casa, desde el molido hasta el tiempo de extracción.",
+    "imgSrc": "../../images/blogimage2.png",
+    "authorImg": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    "authorName": "Carlos López",
+    "link": "#"
+  },
+  {
+    "title": "Explorando el café de especialidad",
+    "description": "Descubre lo que hace único al café de especialidad, desde su origen hasta los métodos de tostado y preparación.",
+    "imgSrc": "../../images/blogimage3.png",
+    "authorImg": "https://images.unsplash.com/photo-1541107636265-e5419ff1746d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    "authorName": "Laura Torres",
+    "link": "#"
+  }
+]

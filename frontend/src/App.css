@@ -7,3 +7,11 @@ h1, h2, h3, h4, h5{
 p, a, body{
     font-family: "Quicksand", serif;
 }
+
+.bg-hero{
+background-image: url("../public/images/hero-fondo.png");
+background-size: contain;
+background-repeat: no-repeat;
+background-color: #FFF5E9;
+background-position: right bottom;
+}

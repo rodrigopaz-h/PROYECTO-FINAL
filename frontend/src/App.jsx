@@ -10,14 +10,12 @@ import ShippingForm from "./views/checkoutViews/ShippingForm";
 import PaymentMethod from "./views/checkoutViews/PaymentMethod";
 import ShippingMethod from "./views/checkoutViews/ShippingMethod";
 import ShippingAlert from "./views/checkoutViews/ShippingAlert";
-import SingleProduct from "./views/generalViews/ProductDetail";
 import { ProductProvider } from "./Context/ProductContext";
 import ProductDetail from "./views/generalViews/ProductDetail";
-import ProductosTodos from "./views/generalViews/ProductGallery";
-import Footer from "./components/layouts/Footer";
-import AboutUs from "./views/generalViews/AboutUs"
-import LegalPrivacy from "./views/generalViews/LegalPrivacy";
-import Contacto from "./views/generalViews/Contacto";
+ import ProductGallery from "./views/generalViews/ProductGallery";
+ import ProductCategory from "./views/generalViews/ProductCategory";
+import Categoria from "./views/generalViews/Categoria";
+import ShoppingCart from "./views/generalViews/ShoppingCart";
 
 function App() {
   return (
@@ -33,11 +31,12 @@ function App() {
               <Route path="pago" element={<PaymentMethod />}/>
           </Route>
           <Route path="alerta" element={<ShippingAlert />}/>
-          <Route path="producto" element={<ProductDetail/>}/>
-          <Route path="galeria" element={<ProductosTodos/>}/>
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/legal" element={<LegalPrivacy />} />
-          <Route path="/contacto" element={<Contacto />} />
+          <Route path="producto/:id" element={<ProductDetail/>}/>
+          <Route path="todos" element={<ProductGallery />} /> 
+          <Route path="cafes" element={<ProductCategory />} />
+          <Route path="accesorios" element={<ProductCategory/>} />
+          <Route path="carrito" element={<ShoppingCart/>} />
+          <Route path="prueba" element={<Categoria/>} />
         </Routes>
         <Footer />
       </ProductProvider>
