@@ -4,6 +4,7 @@ import { ProductContext } from "../../Context/ProductContext";
 import { useLocation } from "react-router-dom";
 import Card from "../../components/layouts/Card";
 
+
 const ProductCategory = () => {
   const { Productos, agregarAlCarrito } = useContext(ProductContext);
   const location = useLocation();
@@ -18,9 +19,13 @@ const ProductCategory = () => {
     (producto) => producto.categoria.toLowerCase() === categoriaActual
   );
 
+  const tituloCat = rutaActual.replace("/", "").charAt(0).toUpperCase() + rutaActual.slice(2).toLowerCase();
+
   return (
     <div>
+       <Title title={ tituloCat} />
       <div className="text-center p-10">
+     
         <section
           id="Projects"
           className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5"
