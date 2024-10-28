@@ -1,23 +1,9 @@
-<<<<<<< HEAD
-
-import { Link } from "react-router-dom";
-=======
 import React from 'react';
 import { Link } from 'react-router-dom';
->>>>>>> 22b6531bbf3a7d5c559493be6348e1dadf889f43
 
 const Navbar = () => {
   return (
     <>
-<<<<<<< HEAD
-      <div className="navbar bg-base-100 bg-naranjal space-x-4">
-      <Link to=""><img src="/images/logo cafe.png" alt="Logo" /></Link>
-        <div className="flex-1 space-x-4">
-          <Link to="productos">Cafés</Link>
-          <Link to="accesorio">Accesorios</Link>
-          <Link to="equipo">Equipos</Link>
-          <Link to="ofertas">Ofertas</Link>
-=======
       <div className="navbar bg-base-100 bg-naranjal">
         {/* Logo con enlace a la página principal */}
         <Link to="/">
@@ -29,7 +15,6 @@ const Navbar = () => {
           <Link to="/" className="btn btn-ghost text-xl">Accesorios</Link>
           <Link to="/" className="btn btn-ghost text-xl">Equipos</Link>
           <Link to="/" className="btn btn-ghost text-xl">Ofertas</Link>
->>>>>>> 22b6531bbf3a7d5c559493be6348e1dadf889f43
         </div>
         
         <div className="flex-none gap-2">
