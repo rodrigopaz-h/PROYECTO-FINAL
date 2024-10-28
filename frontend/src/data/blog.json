@@ -22,5 +22,53 @@
     "authorImg": "https://images.unsplash.com/photo-1541107636265-e5419ff1746d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
     "authorName": "Laura Torres",
     "link": "#"
+  },
+  {
+    "title": "Cómo elegir el mejor café para tu gusto",
+    "description": "Conoce las diferentes variedades y tipos de granos para seleccionar el café perfecto según tus preferencias.",
+    "imgSrc": "../../images/blogimage4.png",
+    "authorImg": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    "authorName": "Ana Gómez",
+    "link": "#"
+  },
+  {
+    "title": "Impacto ambiental de la producción de café",
+    "description": "Explora cómo la producción de café afecta el medio ambiente y qué prácticas ayudan a reducir este impacto.",
+    "imgSrc": "../../images/blogimage5.png",
+    "authorImg": "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    "authorName": "Luis Ramírez",
+    "link": "#"
+  },
+  {
+    "title": "Consejos para conservar el café fresco",
+    "description": "Aprende cómo almacenar el café adecuadamente para que conserve su frescura y sabor por más tiempo.",
+    "imgSrc": "../../images/blogimage6.png",
+    "authorImg": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    "authorName": "Sofía Martínez",
+    "link": "#"
+  },
+  {
+    "title": "La historia del café: de Etiopía al mundo",
+    "description": "Un recorrido histórico sobre el origen del café y su expansión por todo el mundo.",
+    "imgSrc": "../../images/blogimage7.png",
+    "authorImg": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    "authorName": "Fernando Ortega",
+    "link": "#"
+  },
+  {
+    "title": "Cómo preparar café en una prensa francesa",
+    "description": "Descubre los pasos para preparar café en una prensa francesa y obtener un sabor único y profundo.",
+    "imgSrc": "../../images/blogimage8.png",
+    "authorImg": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    "authorName": "Lucía Fernández",
+    "link": "#"
+  },
+  {
+    "title": "El café y la cultura: ritos y tradiciones",
+    "description": "Explora las diferentes tradiciones y rituales relacionados con el café en diversas culturas.",
+    "imgSrc": "../../images/blogimage9.png",
+    "authorImg": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    "authorName": "Miguel Rojas",
+    "link": "#"
   }
 ]

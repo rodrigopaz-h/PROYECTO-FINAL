@@ -6,21 +6,21 @@ const Blog = () => {
       id: 1,
       title: "Meet AutoManage, the best AI management tools",
       date: "Dec 22, 2023",
-      image: "/images/Blog Image.png", // Reemplaza con la ruta de tu imagen
+      image: "/images/Blog Image.png",
       description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     },
     {
       id: 2,
       title: "How to earn more money as a wellness coach",
       date: "Mar 15, 2023",
-      image: "/images/Blog Image (1).png", // Reemplaza con la ruta de tu imagen
+      image: "/images/Blog Image (1).png",
       description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     },
     {
       id: 3,
       title: "The no-fuss guide to upselling and cross selling",
       date: "Jan 05, 2023",
-      image: "/images/Blog Image (2).png", // Reemplaza con la ruta de tu imagen
+      image: "/images/Blog Image (2).png",
       description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     },
   ];
