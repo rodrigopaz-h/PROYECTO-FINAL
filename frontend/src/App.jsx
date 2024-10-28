@@ -14,6 +14,10 @@ import SingleProduct from "./views/generalViews/ProductDetail";
 import { ProductProvider } from "./Context/ProductContext";
 import ProductDetail from "./views/generalViews/ProductDetail";
 import ProductosTodos from "./views/generalViews/ProductGallery";
+import Footer from "./components/layouts/Footer";
+import AboutUs from "./views/generalViews/AboutUs"
+import LegalPrivacy from "./views/generalViews/LegalPrivacy";
+import Contacto from "./views/generalViews/Contacto";
 
 function App() {
   return (
@@ -31,7 +35,11 @@ function App() {
           <Route path="alerta" element={<ShippingAlert />}/>
           <Route path="producto" element={<ProductDetail/>}/>
           <Route path="galeria" element={<ProductosTodos/>}/>
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/legal" element={<LegalPrivacy />} />
+          <Route path="/contacto" element={<Contacto />} />
         </Routes>
+        <Footer />
       </ProductProvider>
     </>
   );

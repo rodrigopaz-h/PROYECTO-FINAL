@@ -1,17 +1,22 @@
-
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <>
-      <div className="navbar bg-base-100 bg-naranjal space-x-4">
-      <Link to=""><img src="/images/logo cafe.png" alt="Logo" /></Link>
-        <div className="flex-1 space-x-4">
-          <Link to="productos">Cafés</Link>
-          <Link to="accesorio">Accesorios</Link>
-          <Link to="equipo">Equipos</Link>
-          <Link to="ofertas">Ofertas</Link>
+      <div className="navbar bg-base-100 bg-naranjal">
+        {/* Logo con enlace a la página principal */}
+        <Link to="/">
+          <img src="/images/logo cafe.png" alt="Logo" className="h-10 w-auto" />
+        </Link>
+        
+        <div className="flex-1">
+          <Link to="/" className="btn btn-ghost text-xl">Cafes</Link>
+          <Link to="/" className="btn btn-ghost text-xl">Accesorios</Link>
+          <Link to="/" className="btn btn-ghost text-xl">Equipos</Link>
+          <Link to="/" className="btn btn-ghost text-xl">Ofertas</Link>
         </div>
+        
         <div className="flex-none gap-2">
           <div className="form-control">
             <input
@@ -28,7 +33,7 @@ const Navbar = () => {
             >
               <div className="w-10 rounded-full">
                 <img
-                  alt="Tailwind CSS Navbar component"
+                  alt="User Avatar"
                   src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
                 />
               </div>
@@ -43,19 +48,16 @@ const Navbar = () => {
                   <span className="badge">New</span>
                 </a>
               </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
+              <li><a>Settings</a></li>
+              <li><a>Logout</a></li>
             </ul>
           </div>
+
           {/* Botones de Acceder y Registrarse */}
           <div className="flex items-center space-x-1">
-            <a className="btn btn-ghost text-xl">Acceder</a>
+            <Link to="/login" className="btn btn-ghost text-xl">Acceder</Link>
             <span className="text-xl">/</span>
-            <a className="btn btn-ghost text-xl">Registrarse</a>
+            <Link to="/register" className="btn btn-ghost text-xl">Registrarse</Link>
           </div>
 
           {/* Carrito de compras */}
@@ -83,15 +85,9 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 2</a>
-              </li>
-              <li>
-                <a>Checkout</a>
-              </li>
+              <li><a>Item 1</a></li>
+              <li><a>Item 2</a></li>
+              <li><a>Checkout</a></li>
             </ul>
           </div>
         </div>
