@@ -3,6 +3,7 @@ import "./index.css";
 import React from "react";
 import Navbar from "./components/layouts/Navbar";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import PublicationDetail from "./views/generalViews/PublicactionDetail";
 import {Routes, Route, Navigate } from "react-router-dom";
 import Home from "./components/layouts/Home";
 import Checkout from "./views/generalViews/Checkout";
@@ -20,6 +21,9 @@ import Footer from "./components/layouts/Footer";
 function App() {
   return (
     <>
+    
+
+
       <ProductProvider>
         <Navbar />
         <Routes>
@@ -36,6 +40,9 @@ function App() {
           <Route path="cafes" element={<ProductCategory />} />
           <Route path="accesorios" element={<ProductCategory/>} />
           <Route path="carrito" element={<ShoppingCart/>} />
+          <Route path="detalle" element={<ProductDetail/>} />
+          <Route path="publicaciones" element={<PublicationDetail />} />
+
         </Routes>
         <Footer />
       </ProductProvider>
