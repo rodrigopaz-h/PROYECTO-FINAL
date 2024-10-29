@@ -22,5 +22,45 @@
     "authorImg": "https://images.unsplash.com/photo-1541107636265-e5419ff1746d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
     "authorName": "Laura Torres",
     "link": "#"
+  },
+  {
+    "title": "Café y productividad: ¿mito o realidad?",
+    "description": "Exploramos si realmente el café puede mejorar nuestra productividad y concentración en el trabajo.",
+    "imgSrc": "../../images/image-card-1.jpg",
+    "authorImg": "../../images/blogimage4.jpg",
+    "authorName": "Javier Herrera",
+    "link": "#"
+  },
+  {
+    "title": "Cómo elegir el molido ideal para tu café",
+    "description": "Conoce los diferentes tipos de molido y cómo cada uno afecta el sabor de tu café.",
+    "imgSrc": "../../images/image-card-2.jpg",
+    "authorImg": "../../images/blogimage5.jpg",
+    "authorName": "Sofía Méndez",
+    "link": "#"
+  },
+  {
+    "title": "Los tipos de café alrededor del mundo",
+    "description": "Un recorrido por las variedades de café que puedes encontrar en distintos países y sus tradiciones.",
+    "imgSrc": "../../images/image-card-3.jpg",
+    "authorImg": "../../images/blogimage6.jpg",
+    "authorName": "Ana Suárez",
+    "link": "#"
+  },
+  {
+    "title": "Cómo almacenar correctamente el café en casa",
+    "description": "Consejos para conservar el aroma y el sabor de tus granos de café por más tiempo.",
+    "imgSrc": "../../images/image-card-4.jpg",
+    "authorImg": "../../images/blogimage7.jpg",
+    "authorName": "Miguel García",
+    "link": "#"
+  },
+  {
+    "title": "Las mejores recetas de café frío para el verano",
+    "description": "Refresca tus días de verano con estas recetas sencillas y deliciosas de café frío.",
+    "imgSrc": "../../images/image-card-5.jpg",
+    "authorImg": "../../images/blogimage8.jpg",
+    "authorName": "Daniela Robles",
+    "link": "#"
   }
 ]
