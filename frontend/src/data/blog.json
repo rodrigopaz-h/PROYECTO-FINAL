@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "title": "Los beneficios del café para la salud",
     "description": "El café no solo es una bebida popular, sino que también aporta antioxidantes y puede mejorar el estado de alerta mental.",
     "imgSrc": "../../images/blogimage1.png",
@@ -8,6 +9,7 @@
     "link": "#"
   },
   {
+    "id": 2,
     "title": "El arte de preparar un espresso perfecto",
     "description": "Aprende los secretos para crear un espresso perfecto en casa, desde el molido hasta el tiempo de extracción.",
     "imgSrc": "../../images/blogimage2.png",
@@ -16,6 +18,7 @@
     "link": "#"
   },
   {
+    "id": 3,
     "title": "Explorando el café de especialidad",
     "description": "Descubre lo que hace único al café de especialidad, desde su origen hasta los métodos de tostado y preparación.",
     "imgSrc": "../../images/blogimage3.png",
@@ -24,6 +27,7 @@
     "link": "#"
   },
   {
+    "id": 4,
     "title": "Café y productividad: ¿mito o realidad?",
     "description": "Exploramos si realmente el café puede mejorar nuestra productividad y concentración en el trabajo.",
     "imgSrc": "../../images/image-card-1.jpg",
@@ -32,6 +36,7 @@
     "link": "#"
   },
   {
+    "id": 5,
     "title": "Cómo elegir el molido ideal para tu café",
     "description": "Conoce los diferentes tipos de molido y cómo cada uno afecta el sabor de tu café.",
     "imgSrc": "../../images/image-card-2.jpg",
@@ -40,6 +45,7 @@
     "link": "#"
   },
   {
+    "id": 6,
     "title": "Los tipos de café alrededor del mundo",
     "description": "Un recorrido por las variedades de café que puedes encontrar en distintos países y sus tradiciones.",
     "imgSrc": "../../images/image-card-3.jpg",
@@ -48,6 +54,7 @@
     "link": "#"
   },
   {
+    "id": 7,
     "title": "Cómo almacenar correctamente el café en casa",
     "description": "Consejos para conservar el aroma y el sabor de tus granos de café por más tiempo.",
     "imgSrc": "../../images/image-card-4.jpg",
@@ -56,6 +63,7 @@
     "link": "#"
   },
   {
+    "id": 8,
     "title": "Las mejores recetas de café frío para el verano",
     "description": "Refresca tus días de verano con estas recetas sencillas y deliciosas de café frío.",
     "imgSrc": "../../images/image-card-5.jpg",
@@ -64,4 +72,3 @@
     "link": "#"
   }
 ]
-
