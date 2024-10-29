@@ -3,6 +3,7 @@ import "./index.css";
 import React from "react";
 import Navbar from "./components/layouts/Navbar";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import PublicationDetail from "./views/generalViews/PublicactionDetail";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./components/layouts/Home";
 import Checkout from "./views/generalViews/Checkout";
@@ -21,7 +22,7 @@ import AboutUs from "./views/generalViews/AboutUs";
 import LegalPrivacy from "./views/generalViews/LegalPrivacy";
 import Contacto from "./views/generalViews/Contacto";
 import UserRegistration from "./views/userViews/UserRegistration";
-import UserLogin from "./views/userViews/UserLogin"
+import UserLogin from "./views/userViews/UserLogin";
 import { UserInfo } from "./views/userViews/UserInfo";
 import { PasswordResetRequest } from "./views/userViews/PasswordResetRequest";
 import { PasswordResetSuccess } from "./views/userViews/PasswordResetSuccess";
@@ -55,11 +56,9 @@ function App() {
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/micuenta" element={<UserLogin />} />
             <Route path="/blog" element={<BlogPage />} />
-            <Route path="/cafes" element={<ProductGallery />} />
-            <Route path="/accesorios" element={<ProductCategory />} />
+            <Route path="/publicaciones" element={<PublicationDetail />} />
             <Route path="/profile" element={<UserInfo />} />
             <Route path="/acceso-seguridad" element={<PasswordResetRequest />} />
-            <Route path="/cancelar" element={<UserInfo />} />
             <Route path="/enviar" element={<PasswordResetSuccess />} />
             <Route path="/all-blogs" element={<BlogPage />} />
             <Route path="/blog/:id" element={<BlogDetail />} />
