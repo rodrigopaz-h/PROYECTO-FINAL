@@ -19,7 +19,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-yellow-500">
+              <a href="/micuenta" className="hover:text-yellow-500">
                 Mi cuenta
               </a>
             </li>
@@ -31,18 +31,13 @@ const Footer = () => {
           <h3 className="text-yellow-500 font-semibold mb-4">Shop</h3>
           <ul className="space-y-2">
             <li>
-              <a href="#" className="text-yellow-500">
+              <a href="cafes" className="text-yellow-500">
                 Cafe
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-yellow-500">
+              <a href="/accesorios" className="hover:text-yellow-500">
                 Accesorios
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-yellow-500">
-                Equipos
               </a>
             </li>
           </ul>
@@ -59,7 +54,7 @@ const Footer = () => {
             </li>
 
             <li>
-              <a href="#" className="hover:text-yellow-500">
+              <a href="/blog" className="hover:text-yellow-500">
                 Nuestro Blog
               </a>
             </li>
