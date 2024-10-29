@@ -29,6 +29,7 @@ import { UserInfo } from "./views/userViews/UserInfo";
 import { PasswordResetRequest } from "./views/userViews/PasswordResetRequest";
 import { PasswordResetSuccess } from "./views/userViews/PasswordResetSuccess";
 import BlogPage from "./views/generalViews/BlogPage";
+import NotFound from "./views/generalViews/NotFound";
 
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
             <Route path="/acceso-seguridad" element={<PasswordResetRequest />} />
             <Route path="/enviar" element={<PasswordResetSuccess />} />
             <Route path="/all-blogs" element={<BlogPage />} />
+            <Route path="/*" element={<NotFound />} />
           </Routes>
           <Footer />
         </ProductProvider>
