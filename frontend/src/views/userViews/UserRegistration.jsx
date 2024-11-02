@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
+import Button from '../../components/layouts/Button';
+
 
 const UserRegistration = () => {
   const navigate = useNavigate();
@@ -25,7 +27,7 @@ const UserRegistration = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div id='form-registro' className="flex justify-center items-center min-h-screen py-20">
       <form onSubmit={handleSubmit} className="w-full max-w-lg bg-white p-8 shadow-md rounded">
         <h2 className="text-2xl font-semibold mb-6">Crea tu cuenta</h2>
         
@@ -103,13 +105,8 @@ const UserRegistration = () => {
         </div>
 
         {/* Botón de Registro */}
-        <div className="mt-6">
-          <button
-            type="submit"
-            className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800"
-          >
-            Registrarme
-          </button>
+        <div className="mt-6 flex justify-center">
+          <Button to="" text="Registrarme"/>
         </div>
       </form>
     </div>
