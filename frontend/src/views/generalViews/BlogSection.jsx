@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import blog from "../../data/blog.json";
+import Button from '../../components/layouts/Button';
 
 export default function BlogSection() {
   return (
@@ -38,9 +39,7 @@ export default function BlogSection() {
       </div>
       <div className="flex justify-center mt-10">
         <Link to="/all-blogs">
-          <button className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-500 transition duration-300">
-            Ver más
-          </button>
+          <Button text="Ver más" bg="bg-naranja"/>
         </Link>
       </div>
     </div>
