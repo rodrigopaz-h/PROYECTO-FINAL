@@ -1,49 +1,49 @@
 const bcrypt = require('bcrypt');
 const pool = require('../db/config');
 
-// Función para crear un nuevo usuario
-async function crearUsuario(req, res) {
-    const { email, contrasena } = req.body;
+// Funcion para crear un nuevo usuario
+async function createUser(req, res) {
+    const { first_name, last_name, email, password } = req.body;
     try {
         const saltRounds = 10;
-        const hashedPassword = await bcrypt.hash(contrasena, saltRounds);
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
 
         const result = await pool.query(
-            'INSERT INTO usuarios (email, contrasena) VALUES ($1, $2) RETURNING *',
-            [email, hashedPassword]
+            'INSERT INTO users (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) RETURNING *',
+            [first_name, last_name, email, hashedPassword]
         );
         res.status(201).json(result.rows[0]);
     } catch (err) {
         console.error(err);
-        res.status(500).send("Error al crear el usuario");
+        res.status(500).send("Error creating user");
     }
 }
 
-// Función para iniciar sesión
-async function iniciarSesion(req, res) {
-    const { email, contrasena } = req.body;
+// Funcion de inicio de sesion
+async function loginUser(req, res) {
+    const { email, password } = req.body;
     try {
-        const result = await pool.query('SELECT * FROM usuarios WHERE email = $1', [email]);
-        const usuario = result.rows[0];
+        const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+        const user = result.rows[0];
 
-        if (!usuario) {
-            return res.status(404).send("Usuario no encontrado");
+        if (!user) {
+            return res.status(404).send("User not found");
         }
 
-        // Comparar la contraseña ingresada con el hash almacenado
-        const isMatch = await bcrypt.compare(contrasena, usuario.contrasena);
+        // para comparar contraseñas
+        const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.status(401).send("Contraseña incorrecta");
+            return res.status(401).send("Incorrect password");
         }
 
-        res.send("Inicio de sesión exitoso");
+        res.send("Login successful");
     } catch (err) {
         console.error(err);
-        res.status(500).send("Error en el servidor");
+        res.status(500).send("Server error");
     }
 }
 
 module.exports = {
-    crearUsuario,
-    iniciarSesion,
+    createUser,
+    loginUser,
 };
