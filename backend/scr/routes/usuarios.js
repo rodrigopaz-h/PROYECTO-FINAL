@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const usuariosController = require('../controllers/usuariosController');
+const userController = require('../controllers/userController');
 
-router.post('/usuarios', usuariosController.crearUsuario);
+router.post('/usuarios', userController.createUser);
 
-router.post('/usuarios/login', usuariosController.iniciarSesion);
+router.post('/usuarios/login', userController.loginUser);
 
 router.get('/usuarios', (req, res) => {
     res.send("Lista de usuarios");
