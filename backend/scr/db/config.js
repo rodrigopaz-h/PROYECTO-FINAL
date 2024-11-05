@@ -11,7 +11,7 @@ const pool = new Pool({
 });
 
 async function createTablesAndViews() {
-    const sqlFiles = ['productos.sql', 'cafes.sql', 'accesorios.sql', 'todos.sql']; // archivos a ejecutar
+    const sqlFiles = ['cafes.sql', 'accesorios.sql', 'todos.sql']; // archivos a ejecutar
     for (const file of sqlFiles) {
         const sql = fs.readFileSync(path.join(__dirname, 'db', file)).toString();
         try {
