@@ -1,4 +1,4 @@
-import CafeModel from '../models/cafeModel.js';
+import CafeModel from '../../src/models/cafeModel.js';
 
 // Obtener todos los cafés
 export async function getAllCafes(req, res) {

@@ -1,4 +1,4 @@
-import TodosModel from '../models/todosModel.js';
+import TodosModel from '../../src/models/todosModel.js';
 
 // Obtener todos los productos (cafés y accesorios) de la vista 'todos'
 export async function getAllProducts(req, res) {
