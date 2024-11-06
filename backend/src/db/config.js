@@ -3,11 +3,21 @@ const fs = require('fs');
 const path = require('path');
 
 const pool = new Pool({
-    user: 'postgre',
+    user: 'postgres',
     host: 'localhost',
     database: 'aromacafe',
-    password: 'Esteban23catalan27@',
+    password: '1234',
     port: 5432,
+});
+
+// Verificar la conexión
+pool.connect((err, client, release) => {
+    if (err) {
+        console.error('Error al conectar con la base de datos:', err);
+    } else {
+        console.log('Conexión a la base de datos establecida exitosamente.');
+    }
+    release(); // Liberar el cliente después de la prueba de conexión
 });
 
 async function createTablesAndViews() {
@@ -23,6 +33,7 @@ async function createTablesAndViews() {
     }
 }
 
-createTablesAndViews();
-
+createTablesAndViews()
+    .catch(err => console.error("Error al crear tablas y vistas:", err))
+    .finally(() => pool.end());
 module.exports = pool;

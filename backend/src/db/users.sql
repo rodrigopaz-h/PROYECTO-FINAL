@@ -1,3 +1,4 @@
+-- Active: 1725139723792@@127.0.0.1@5432@aromacafe
 -- Crear la base de datos aromacafe si no existe
 DO
 $do$
