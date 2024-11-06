@@ -1,4 +1,3 @@
-// middlewares/authMiddleware.js
 import { verifyToken } from "../utils/authUtils.js";
 
 export const authMiddleware = (req, res, next) => {
@@ -13,9 +12,7 @@ export const authMiddleware = (req, res, next) => {
 
   try {
     const decoded = verifyToken(token);
-
     req.user = decoded;
-
     next();
   } catch (error) {
     res.status(401).json({ message: "Token inválido o expirado" });

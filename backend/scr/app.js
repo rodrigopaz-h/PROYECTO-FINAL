@@ -1,15 +1,27 @@
-// src/app.js
-const express = require('express');
-const morgan = require('morgan');
-// const userRoutes = require('./routes/userRoutes');
+import express from "express";
+import morgan from "morgan";
+import dotenv from "dotenv";
+import indexRoutes from "./routes/indexRoutes.js";
 
+dotenv.config();
 const app = express();
 
-// Middlewares
-app.use(morgan('dev'));
+// Middlewares globales
+app.use(morgan("dev"));
 app.use(express.json());
 
-// Rutas
-//app.use('/api/users', userRoutes);
+// Rutas principales
+app.use("/api", indexRoutes);
 
-module.exports = app;
+// Middleware de manejo de errores
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  const status = err.status || 500;
+  const message =
+    process.env.NODE_ENV === "development"
+      ? err.message
+      : "Ocurrió un error en el servidor";
+  res.status(status).json({ message });
+});
+
+export default app;
