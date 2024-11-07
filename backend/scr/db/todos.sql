@@ -1,30 +1,26 @@
-CREATE VIEW todos AS
+CREATE OR REPLACE VIEW todos AS
 SELECT 
-    p.id AS producto_id,
-    p.nombre,
-    p.categoria,
-    p.precio,
-    p.imagen_url,
-    p.stock,
+    c.id AS producto_id,
+    c.nombre,
+    'Cafes' AS categoria,
+    c.precio,
+    c.imagen_url,
+    c.stock,
     c.origen AS procedencia,
     c.descripcion
 FROM 
-    productos p
-JOIN 
-    cafes c ON p.id = c.producto_id
+    cafes c
 
 UNION ALL
 
 SELECT 
-    p.id AS producto_id,
-    p.nombre,
-    p.categoria,
-    p.precio,
-    p.imagen_url,
-    p.stock,
+    a.id AS producto_id,
+    a.nombre,
+    'Accesorios' AS categoria,
+    a.precio,
+    a.imagen_url,
+    a.stock,
     a.origen AS procedencia,
     a.descripcion
 FROM 
-    productos p
-JOIN 
-    accesorios a ON p.id = a.producto_id;
+    accesorios a;

@@ -1,4 +1,4 @@
-const pool = require('../db/config');
+import pool from '../db/config';
 
 const CafeModel = {
     // Obtener todos los cafés
@@ -16,4 +16,4 @@ const CafeModel = {
     }
 };
 
-module.exports = CafeModel;
+export default CafeModel;

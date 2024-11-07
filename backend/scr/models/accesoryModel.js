@@ -1,4 +1,4 @@
-const pool = require('../db/config');
+import pool from '../db/config';
 
 const AccessoryModel = {
     // Obtener todos los accesorios
@@ -16,4 +16,4 @@ const AccessoryModel = {
     }
 };
 
-module.exports = AccessoryModel;
+export default AccessoryModel;

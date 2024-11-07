@@ -1,7 +1,5 @@
-// models/UserModel.js
-
-const bcrypt = require('bcrypt');
-const pool = require('../db/config');
+import bcrypt from 'bcrypt';
+import pool from '../db/config';
 
 const UserModel = {
     // Función para crear un usuario en la base de datos
@@ -27,4 +25,4 @@ const UserModel = {
     }
 };
 
-module.exports = UserModel;
+export default UserModel;
