@@ -1,7 +1,7 @@
-const AccessoryModel = require('../models/AccessoryModel');
+import AccessoryModel from '../models/AccessoryModel.js';
 
 // Obtener todos los accesorios
-async function getAllAccessories(req, res) {
+export async function getAllAccessories(req, res) {
     try {
         const accessories = await AccessoryModel.getAllAccessories();
         res.json(accessories);
@@ -12,7 +12,7 @@ async function getAllAccessories(req, res) {
 }
 
 // Obtener un accesorio por ID
-async function getAccessoryById(req, res) {
+export async function getAccessoryById(req, res) {
     const { id } = req.params;
     try {
         const accessory = await AccessoryModel.getAccessoryById(id);
@@ -25,8 +25,3 @@ async function getAccessoryById(req, res) {
         res.status(500).send("Error al obtener el accesorio");
     }
 }
-
-module.exports = {
-    getAllAccessories,
-    getAccessoryById
-};
