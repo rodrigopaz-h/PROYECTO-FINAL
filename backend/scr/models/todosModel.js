@@ -1,6 +1,4 @@
-// models/TodosModel.js
-
-const pool = require('../db/config');
+import pool from '../db/config';
 
 const TodosModel = {
     // Obtener todos los productos (cafés y accesorios) de la vista 'todos'
@@ -11,4 +9,4 @@ const TodosModel = {
     }
 };
 
-module.exports = TodosModel;
+export default TodosModel;
