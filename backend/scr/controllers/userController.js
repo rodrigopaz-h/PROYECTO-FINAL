@@ -1,5 +1,6 @@
-import UserModel from '../models/UserModel.js';
+import UserModel from '../models/users';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 // Función para crear un nuevo usuario
 export async function createUser(req, res) {
@@ -29,7 +30,14 @@ export async function loginUser(req, res) {
             return res.status(401).send("Incorrect password");
         }
 
-        res.send("Login successful");
+        // Generar el token con el ID del usuario y su email
+        const token = jwt.sign(
+            { id: user.id, email: user.email },
+            process.env.JWT_SECRET,
+            { expiresIn: process.env.JWT_EXPIRES_IN || '1h' }
+        );
+
+        res.json({ message: "Login successful", token });
     } catch (err) {
         console.error(err);
         res.status(500).send("Server error");
