@@ -1,8 +1,8 @@
-const UserModel = require('../models/UserModel');
-const bcrypt = require('bcrypt');
+import UserModel from '../models/UserModel.js';
+import bcrypt from 'bcrypt';
 
 // Función para crear un nuevo usuario
-async function createUser(req, res) {
+export async function createUser(req, res) {
     const { first_name, last_name, email, password } = req.body;
     try {
         const newUser = await UserModel.create(first_name, last_name, email, password);
@@ -14,7 +14,7 @@ async function createUser(req, res) {
 }
 
 // Función para iniciar sesión
-async function loginUser(req, res) {
+export async function loginUser(req, res) {
     const { email, password } = req.body;
     try {
         const user = await UserModel.findByEmail(email);
@@ -35,8 +35,3 @@ async function loginUser(req, res) {
         res.status(500).send("Server error");
     }
 }
-
-module.exports = {
-    createUser,
-    loginUser,
-};
