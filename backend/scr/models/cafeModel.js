@@ -3,7 +3,7 @@ import pool from '../db/config';
 const CafeModel = {
     // Obtener todos los cafés
     async getAllCafes() {
-        const query = 'SELECT * FROM cafes';
+        const query = 'SELECT nombre, origen, precio, imagen_url FROM cafes';
         const result = await pool.query(query);
         return result.rows;
     },
