@@ -47,7 +47,7 @@ export const pool = new Pool({
 
 // Crear tablas y vistas desde archivos SQL
 export async function createTablesAndViews() {
-    const sqlFiles = ['cafes.sql', 'accesorios.sql', 'todos.sql', 'users.sql'];
+    const sqlFiles = ['cafes.sql', 'accesorios.sql', 'todos.sql', 'users.sql', 'blog.sql'];
     for (const file of sqlFiles) {
         const filePath = path.join(__dirname, file); // Eliminado el subdirectorio 'db'
         const sql = fs.readFileSync(filePath, 'utf8');
