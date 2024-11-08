@@ -3,7 +3,7 @@ import pool from '../db/config';
 const BlogModel = {
     // Función para obtener todos los blogs
     async getAllBlogs() {
-        const query = 'SELECT * FROM blogs';
+        const query = 'SELECT title, description, imgSrc, authorImg, authorName, link FROM blog_posts';
         const result = await pool.query(query);
         return result.rows;
     },
