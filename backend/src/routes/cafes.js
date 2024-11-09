@@ -1,6 +1,7 @@
-const express = require("express");
+import express from "express";
+import cafeController from "../controllers/cafeController.js";
+
 const router = express.Router();
-const cafeController = require("../controllers/cafeController");
 
 // Ruta para obtener todos los cafés
 router.get("/cafes", cafeController.getAllCafes);
@@ -12,6 +13,6 @@ router.get("/cafes/:id", cafeController.getCafeById);
 // 1. ruta para ediatr cafe
 // 2. ruta para eliminar cafe
 
-module.exports = router;
+export default router;
 
 //este modulo se debe cambaira  ES module

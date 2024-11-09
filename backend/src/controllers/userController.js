@@ -1,4 +1,4 @@
-import UserModel from "../models/users";
+import users from "../models/users.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
@@ -6,12 +6,7 @@ import jwt from "jsonwebtoken";
 export async function createUser(req, res) {
   const { first_name, last_name, email, password } = req.body;
   try {
-    const newUser = await UserModel.create(
-      first_name,
-      last_name,
-      email,
-      password
-    );
+    const newUser = await users.create(first_name, last_name, email, password);
     res.status(201).json(newUser);
   } catch (err) {
     console.error(err);
@@ -23,7 +18,7 @@ export async function createUser(req, res) {
 export async function loginUser(req, res) {
   const { email, password } = req.body;
   try {
-    const user = await UserModel.findByEmail(email);
+    const user = await users.findByEmail(email);
 
     if (!user) {
       return res.status(404).send("User not found");

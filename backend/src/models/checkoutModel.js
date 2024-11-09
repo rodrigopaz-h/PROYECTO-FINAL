@@ -1,14 +1,13 @@
-import { pool } from "../db/config";
-
+import { pool } from "../db/config.js";
 // Función para obtener el carrito del usuario por su ID
 export const getCartByUserId = async (userId) => {
   try {
     const result = await pool.query(
       `SELECT ci.id, ci.product_id, p.name, p.description, p.price, ci.quantity
-             FROM cart_items ci
-             JOIN carts c ON ci.cart_id = c.id
-             JOIN products p ON ci.product_id = p.id
-             WHERE c.user_id = $1`,
+       FROM cart_items ci
+       JOIN carts c ON ci.cart_id = c.id
+       JOIN products p ON ci.product_id = p.id
+       WHERE c.user_id = $1`,
       [userId]
     );
     return result.rows;
@@ -96,7 +95,7 @@ export const saveShippingAddress = async (userId, shippingAddress) => {
     const { first_name, last_name, address } = shippingAddress;
     await pool.query(
       `INSERT INTO shipping_addresses (user_id, first_name, last_name, address)
-             VALUES ($1, $2, $3, $4)`,
+       VALUES ($1, $2, $3, $4)`,
       [userId, first_name, last_name, address]
     );
 
@@ -112,7 +111,7 @@ export const saveShippingMethod = async (userId, shippingMethod) => {
     const { method_name, cost, estimated_delivery_time } = shippingMethod;
     await pool.query(
       `INSERT INTO shipping_methods (user_id, method_name, cost, estimated_delivery_time)
-             VALUES ($1, $2, $3, $4)`,
+       VALUES ($1, $2, $3, $4)`,
       [userId, method_name, cost, estimated_delivery_time]
     );
 
@@ -128,7 +127,7 @@ export const processPayment = async (userId, paymentDetails) => {
     const { amount, payment_status, payment_method } = paymentDetails;
     await pool.query(
       `INSERT INTO payments (user_id, amount, payment_status, payment_method)
-             VALUES ($1, $2, $3, $4)`,
+       VALUES ($1, $2, $3, $4)`,
       [userId, amount, payment_status, payment_method]
     );
 

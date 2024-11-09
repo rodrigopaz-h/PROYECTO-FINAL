@@ -17,9 +17,17 @@ router.delete(
 router.post(
   "/direccion",
   authMiddleware,
-  checkoutController.saveShippingAddress
+  checkoutController.saveShippingAddressController
 );
-router.post("/envio", authMiddleware, checkoutController.saveShippingMethod);
-router.post("/pago", authMiddleware, checkoutController.processPayment);
+router.post(
+  "/envio",
+  authMiddleware,
+  checkoutController.saveShippingMethodController
+);
+router.post(
+  "/pago",
+  authMiddleware,
+  checkoutController.processPaymentController
+);
 
 export default router;

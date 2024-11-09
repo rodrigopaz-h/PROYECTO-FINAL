@@ -1,4 +1,4 @@
-import TodosModel from "../../src/models/todosModel.js"; //esta ruta no funciona porque deberia ser ../models/todosModel.js (es mas corta y la existenteno coincide con "scr")
+import TodosModel from "../../src/models/todosModel.js";
 
 // Obtener todos los productos (cafés y accesorios) de la vista 'todos'
 export async function getAllProducts(req, res) {

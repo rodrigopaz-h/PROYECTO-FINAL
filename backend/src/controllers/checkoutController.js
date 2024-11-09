@@ -60,7 +60,7 @@ export const removeFromCart = async (req, res) => {
 };
 
 // Guardar la dirección de envío del usuario
-export const saveShippingAddress = async (req, res) => {
+export const saveShippingAddressController = async (req, res) => {
   try {
     const userId = req.user.id;
     const { first_name, last_name, address } = req.body;
@@ -84,7 +84,7 @@ export const saveShippingAddress = async (req, res) => {
 };
 
 // Guardar el método de envío del usuario
-export const saveShippingMethod = async (req, res) => {
+export const saveShippingMethodController = async (req, res) => {
   try {
     const userId = req.user.id;
     const { method_name, cost, estimated_delivery_time } = req.body;
@@ -108,7 +108,7 @@ export const saveShippingMethod = async (req, res) => {
 };
 
 // Procesar el pago
-export const processPayment = async (req, res) => {
+export const processPaymentController = async (req, res) => {
   try {
     const userId = req.user.id;
     const { amount, payment_status, payment_method } = req.body;
