@@ -53,6 +53,8 @@ export const pool = new Pool({
   port: process.env.DB_PORT,
 });
 
+
+
 // Crear tablas y vistas desde archivos SQL
 export async function createTablesAndViews() {
   const sqlFiles = [
