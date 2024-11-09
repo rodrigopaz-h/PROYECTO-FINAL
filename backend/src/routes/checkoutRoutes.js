@@ -15,15 +15,11 @@ router.delete(
 
 // Rutas de proceso de checkout
 router.post(
-  "/shipping-address",
+  "/direccion",
   authMiddleware,
   checkoutController.saveShippingAddress
 );
-router.post(
-  "/shipping-method",
-  authMiddleware,
-  checkoutController.saveShippingMethod
-);
-router.post("/payment", authMiddleware, checkoutController.processPayment);
+router.post("/envio", authMiddleware, checkoutController.saveShippingMethod);
+router.post("/pago", authMiddleware, checkoutController.processPayment);
 
 export default router;

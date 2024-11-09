@@ -93,12 +93,11 @@ export const removeProductFromCart = async (userId, productId) => {
 // Función para guardar la dirección de envío
 export const saveShippingAddress = async (userId, shippingAddress) => {
   try {
-    const { address_line1, address_line2, city, state, postal_code, country } =
-      shippingAddress;
+    const { first_name, last_name, address } = shippingAddress;
     await pool.query(
-      `INSERT INTO shipping_addresses (user_id, address_line1, address_line2, city, state, postal_code, country)
-             VALUES ($1, $2, $3, $4, $5, $6, $7)`,
-      [userId, address_line1, address_line2, city, state, postal_code, country]
+      `INSERT INTO shipping_addresses (user_id, first_name, last_name, address)
+             VALUES ($1, $2, $3, $4)`,
+      [userId, first_name, last_name, address]
     );
 
     return { message: "Dirección de envío guardada" };

@@ -63,22 +63,18 @@ export const removeFromCart = async (req, res) => {
 export const saveShippingAddress = async (req, res) => {
   try {
     const userId = req.user.id;
-    const { address_line1, address_line2, city, state, postal_code, country } =
-      req.body;
+    const { first_name, last_name, address } = req.body;
 
-    if (!address_line1 || !city || !state || !postal_code || !country) {
+    if (!first_name || !last_name || !address) {
       return res
         .status(400)
         .json({ message: "Información de dirección incompleta" });
     }
 
     const result = await saveShippingAddress(userId, {
-      address_line1,
-      address_line2,
-      city,
-      state,
-      postal_code,
-      country,
+      first_name,
+      last_name,
+      address,
     });
     res.status(201).json(result);
   } catch (err) {
