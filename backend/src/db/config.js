@@ -12,16 +12,18 @@ const isJest = typeof jest !== "undefined";
 const __filename = isJest ? __filename : fileURLToPath(import.meta.url);
 const __dirname = isJest ? __dirname : dirname(__filename);
 
+console.log("DB_PASSWORD:", process.env.DB_PASSWORD);
+console.log("Tipo de DB_PASSWORD:", typeof process.env.DB_PASSWORD);
+
 // Configuración inicial de conexión para verificar o crear la base de datos
 const initialPool = new Pool({
-  user: process.env.DB_USER || "postgres" || "postgre" || "postgres",
-  host: process.env.DB_HOST || "localhost" || "localhost" || "localhost",
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
   database: "postgres", // Conexión a la base de datos "postgres" por defecto
-  password:
-    process.env.DB_PASSWORD || "1234" || "Esteban23catalan27@" || "2232",
+  password: process.env.DB_PASSWORD,
   port: process.env.DB_PORT,
 });
-//con esa cofiguracion podremos entrar los 3, en teoria 😅
+//datos para la DB en .env
 
 // Crear la base de datos si no existe
 export async function createDatabase() {
@@ -44,11 +46,10 @@ export async function createDatabase() {
 
 // Conexión a la base de datos "aromacafe"
 export const pool = new Pool({
-  user: process.env.DB_USER || "postgres" || "postgre" || "postgres",
-  host: process.env.DB_HOST || "localhost" || "localhost" || "localhost",
-  database: "aromacafe",
-  password:
-    process.env.DB_PASSWORD || "1234" || "Esteban23catalan27@" || "2232",
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
   port: process.env.DB_PORT,
 });
 
