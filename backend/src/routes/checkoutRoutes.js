@@ -5,24 +5,24 @@ import { authMiddleware } from "../middlewares/authMiddleware.js";
 const router = express.Router();
 
 // Rutas de carrito (protegidas)
-router.get("/cart", authMiddleware, checkoutController.getCart);
-router.post("/cart", authMiddleware, checkoutController.addToCart);
+router.get("/carrito", authMiddleware, checkoutController.getCart);
+router.post("/carrito", authMiddleware, checkoutController.addToCart);
 router.delete(
-  "/cart/:productId",
+  "/carrito/:productId",
   authMiddleware,
-  checkoutController.removeFromCart,
+  checkoutController.removeFromCart
 );
 
 // Rutas de proceso de checkout
 router.post(
   "/shipping-address",
   authMiddleware,
-  checkoutController.saveShippingAddress,
+  checkoutController.saveShippingAddress
 );
 router.post(
   "/shipping-method",
   authMiddleware,
-  checkoutController.saveShippingMethod,
+  checkoutController.saveShippingMethod
 );
 router.post("/payment", authMiddleware, checkoutController.processPayment);
 
