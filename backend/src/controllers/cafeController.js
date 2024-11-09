@@ -1,7 +1,6 @@
-import CafeModel from "../../src/models/cafeModel.js"; //esta ruta no funciona porque deberia ser ../models/cafeModel.js (es mas corta y la existente no coincide con "scr")
-
+import CafeModel from "../../src/models/cafeModel.js";
 // Obtener todos los cafés
-export async function getAllCafes(req, res) {
+async function getAllCafes(req, res) {
   try {
     const cafes = await CafeModel.getAllCafes();
     res.json(cafes);
@@ -12,7 +11,7 @@ export async function getAllCafes(req, res) {
 }
 
 // Obtener un café por ID
-export async function getCafeById(req, res) {
+async function getCafeById(req, res) {
   const { id } = req.params;
   try {
     const cafe = await CafeModel.getCafeById(id);
@@ -25,6 +24,10 @@ export async function getCafeById(req, res) {
     res.status(500).send("Error al obtener el café");
   }
 }
+export default {
+  getAllCafes,
+  getCafeById,
+};
 
 //opcionales
 // 1. funcion para ediatr cafe

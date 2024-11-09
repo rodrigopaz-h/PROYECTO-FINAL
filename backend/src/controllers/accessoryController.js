@@ -26,6 +26,11 @@ export async function getAccessoryById(req, res) {
   }
 }
 
+export default {
+  getAllAccessories,
+  getAccessoryById,
+};
+
 //opcionales
 // 1. funcion para ediatr accesorios
 // 2. funcion para eliminar accesorios

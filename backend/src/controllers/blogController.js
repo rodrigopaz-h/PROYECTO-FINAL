@@ -1,8 +1,8 @@
-import { getAllBlogs, getBlogById } from "../models/blogModel.js";
+import BlogModel from "../models/blogModel.js";
 
 export const getAllBlogsController = async (req, res) => {
   try {
-    const blogs = await getAllBlogs();
+    const blogs = await BlogModel.getAllBlogs();
     res.json(blogs);
   } catch (err) {
     console.error(err);
@@ -13,7 +13,7 @@ export const getAllBlogsController = async (req, res) => {
 export const getBlogByIdController = async (req, res) => {
   try {
     const id = parseInt(req.params.id, 10);
-    const blog = await getBlogById(id);
+    const blog = await BlogModel.getBlogById(id);
     if (blog) {
       res.json(blog);
     } else {
