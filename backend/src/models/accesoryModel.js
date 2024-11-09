@@ -3,7 +3,7 @@ import pool from '../db/config';
 const AccessoryModel = {
     // Obtener todos los accesorios
     async getAllAccessories() {
-        const query = 'SELECT * FROM accesorios';
+        const query = 'SELECT nombre, origen, precio, imagen_url FROM * FROM accesorios';
         const result = await pool.query(query);
         return result.rows;
     },
