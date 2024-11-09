@@ -1,29 +1,52 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
-import Button from '../../components/layouts/Button';
+import axios from 'axios';
 
+const urlBaseServer = import.meta.env.VITE_URL_BASE_SERVER;
 
 const UserRegistration = () => {
   const navigate = useNavigate();
-  const { registerUser } = useContext(UserContext); // Obtiene la función registerUser del contexto
+  const { registerUser } = useContext(UserContext);
+  const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState(""); // Estado para mensaje de éxito
 
   // Función para manejar el envío del formulario
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Obtén los datos del formulario
+  
     const userData = {
       firstName: e.target['first-name'].value,
       lastName: e.target['last-name'].value,
       email: e.target['email'].value,
+      password: e.target['password'].value,
+      confirmPassword: e.target['confirm-password'].value,
     };
 
-    // Guarda el usuario en el contexto
-    registerUser(userData);
+    if (userData.password !== userData.confirmPassword) {
+      setError("Las contraseñas no coinciden");
+      return;
+    }
 
-    // Redirige a la página de inicio de sesión
-    navigate('/login');
+    try {
+      const response = await axios.post(`${urlBaseServer}/api/users/register`, userData);
+
+      
+      if (response.data.success) {
+        registerUser(userData);
+        setSuccessMessage("Usuario registrado con éxito. Redirigiendo...");
+        
+        // Agrega un pequeño retraso antes de la redirección para ver el mensaje
+        setTimeout(() => {
+          navigate('/login');
+        }, 2000);
+      } else {
+        setError("Error en el registro");
+      }
+    } catch (error) {
+      console.error("Error al registrar:", error);
+      setError("Hubo un problema al registrar el usuario");
+    }
   };
 
   return (
@@ -31,6 +54,9 @@ const UserRegistration = () => {
       <form onSubmit={handleSubmit} className="w-full max-w-lg bg-white p-8 shadow-md rounded">
         <h2 className="text-2xl font-semibold mb-6">Crea tu cuenta</h2>
         
+        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+        {successMessage && <p className="text-green-500 text-sm mb-4">{successMessage}</p>}
+
         {/* Campo de Primer Nombre */}
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="first-name">
@@ -106,7 +132,12 @@ const UserRegistration = () => {
 
         {/* Botón de Registro */}
         <div className="mt-6 flex justify-center">
-          <Button to="" text="Registrarme"/>
+          <button
+            type="submit"
+            className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800"
+          >
+            Registrarme
+          </button>
         </div>
       </form>
     </div>

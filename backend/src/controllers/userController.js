@@ -1,18 +1,29 @@
 import users from "../models/users.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import UserModel from "../models/users.js";
 
 // Función para crear un nuevo usuario
-export async function createUser(req, res) {
-  const { first_name, last_name, email, password } = req.body;
+export const createUser = async (req, res) => {
   try {
-    const newUser = await users.create(first_name, last_name, email, password);
-    res.status(201).json(newUser);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Error creating user");
+    const { firstName, lastName, email, password } = req.body;
+
+    // Verifica si el usuario ya existe
+    const existingUser = await UserModel.findByEmail(email);
+    if (existingUser) {
+      return res.status(400).json({ message: "El usuario ya existe" });
+    }
+
+    // Crea el nuevo usuario en la base de datos
+    const newUser = await UserModel.create(firstName, lastName, email, password);
+
+    // Envía una respuesta exitosa
+    res.status(201).json({ success: true, message: "Usuario creado exitosamente", user: newUser });
+  } catch (error) {
+    console.error("Error al crear el usuario:", error);
+    res.status(500).json({ message: "Error interno del servidor al crear el usuario" });
   }
-}
+};
 
 // Función para iniciar sesión
 export async function loginUser(req, res) {
