@@ -1,6 +1,8 @@
 import bcrypt from "bcrypt";
 import { pool } from "../db/config.js";
 
+
+
 const UserModel = {
   // Función para crear un usuario en la base de datos
   async create(first_name, last_name, email, password) {
@@ -23,6 +25,14 @@ const UserModel = {
     const result = await pool.query(query, [email]);
     return result.rows[0];
   },
+
+  // Nueva función para obtener todos los usuarios
+  async getAll() {
+    const query = `SELECT * FROM users`;
+    const result = await pool.query(query);
+    return result.rows;
+  }
+  
 };
 
 export default UserModel;

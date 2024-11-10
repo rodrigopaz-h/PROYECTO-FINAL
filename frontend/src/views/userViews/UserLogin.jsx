@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Button from '../../components/layouts/Button';
 
 const UserLogin = () => {
   const navigate = useNavigate();
@@ -57,6 +58,7 @@ const UserLogin = () => {
 
         {/* Botón de Inicio de Sesión */}
         <div>
+           <Button text="Iniciar sesión"/>
           <button
             type="submit"
             className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800"
