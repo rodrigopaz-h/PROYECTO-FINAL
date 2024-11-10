@@ -2,9 +2,12 @@ import express from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import indexRoutes from "./routes/indexRoutes.js";
+import cors from "cors";
 
 dotenv.config();
 const app = express();
+
+app.use(cors()); 
 
 // Middlewares globales
 app.use(morgan("dev"));

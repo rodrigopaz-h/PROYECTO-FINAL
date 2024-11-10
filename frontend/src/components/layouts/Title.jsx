@@ -1,13 +1,31 @@
 
 export default function Title({ title, text }) {
   return (
-    <div className="w-full mx-auto px-4 bg-naranjal">
-      <div className="grid grid-cols-1 gap-4">
-        <div className="px-20 pt-10 pb-10 flex items-center justify-center ">
-          <h2 className="text-5xl font-semibold tracking-tight sm:text-7xl">{title}</h2>
-          <p className="mt-8 text-pretty text-lg font-medium  sm:text-xl/8">{text}</p>
+    <div className="py-4 bg-gray-100"> {/* Fondo gris claro */}
+      <div className="container mx-auto">
+        <div className="grid grid-cols-1 gap-x-4">
+          <div className="col-span-12">
+            <nav>
+              <ul className="flex flex-wrap items-center justify-center">
+                {/* Enlace "Home" */}
+                <li className="text-gray-800 font-medium text-base uppercase">
+                    Inicio /
+                </li>
+                {/* Enlace "About Us" o el título */}
+                <li className="text-gray-800 font-medium text-base uppercase ">
+                  {title || ""}
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
+      {/* Texto adicional debajo del título */}
+      {text && (
+        <div className="text-center mt-8 text-gray-700 text-lg font-medium">
+          {text}
+        </div>
+      )}
     </div>
-  )
+  );
 }

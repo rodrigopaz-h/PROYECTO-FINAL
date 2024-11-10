@@ -1,13 +1,27 @@
-import { createContext, useState } from 'react';
-import productos from '../data/productos.json'
+import { createContext, useState, useEffect } from 'react';
+import axios from 'axios';
 
 export const ProductContext = createContext();
 
-
 export const ProductProvider = ({ children }) => {
-    const [Productos, setProductos] = useState(productos);
+    const [Productos, setProductos] = useState([]);
     const [Carrito, setCarrito] = useState([]);
 
+    // Cargar los productos desde el backend al montar el componente
+    useEffect(() => {
+        const fetchProductos = async () => {
+            try {
+                const cafesResponse = await axios.get('http://localhost:3000/api/cafes'); 
+                const accesoriosResponse = await axios.get('http://localhost:3000/api/accesorios');
+                // Combinamos los productos en un solo array
+                setProductos([...cafesResponse.data, ...accesoriosResponse.data]);
+            } catch (error) {
+                console.error("Error al obtener los productos:", error);
+            }
+        };
+      
+        fetchProductos();
+    }, []);
 
     const agregarAlCarrito = (id) => {
         const productoExistente = Carrito.find((item) => item.id === id);
@@ -41,7 +55,6 @@ export const ProductProvider = ({ children }) => {
         }
     };
     
-
     const aumentarCantidad = (id) => {
         const nuevoCarrito = Carrito.map((item) =>
             item.id === id ? { ...item, cantidad: item.cantidad + 1 } : item
