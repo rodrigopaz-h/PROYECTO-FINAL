@@ -4,15 +4,15 @@ import Card from '../../components/layouts/Card'
 import Button from '../../components/layouts/Button'
 import { Link } from 'react-router-dom'
 
-export default function SectionsHome({titulo,descripcion, tipoSeccion, fondo}) {
+export default function SectionsHome({titulo,descripcion, tipoSeccion, fondo, colortexto}) {
     const { Productos } = useContext(ProductContext);
   return (
         <div className= {`mx-auto w-full relative pt-10 pb-10 ${fondo}`}>
             <div className="max-w-xl mx-auto text-center lg:text-balance">
-            <h2 className="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white">
+            <h2 className={`text-2xl font-bold md:text-4xl md:leading-tight dark:text-white ${colortexto}`}>
                 {titulo}
             </h2>
-            <p className="text-base leading-normal mt-4 text-base-500 font-medium">
+            <p className={`text-base leading-normal mt-4 text-base-500 font-medium ${colortexto}`}>
                 {descripcion}
             </p>
             </div>
@@ -33,30 +33,10 @@ export default function SectionsHome({titulo,descripcion, tipoSeccion, fondo}) {
         <div className="container mx-auto py-9 md:py-12 px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             <Link to="/cafes" className="flex-1">
-              <div className="flex flex-col md:flex-row items-stretch justify-between bg-gray-50 py-6 px-6 md:py-12 lg:px-12 h-full">
-                <div className="flex flex-col justify-center md:w-1/2">
-                  <h1 className="text-3xl lg:text-4xl font-semibold text-gray-800">Cafés</h1>
-                  <p className="text-base lg:text-xl text-gray-800 mt-2">
-                    Ahorra hasta un <span className="font-bold">50%</span>
-                  </p>
-                </div>
-                <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end">
-                  <img src="../images/cat-cafe.png" alt="Cafés" className="h-auto max-h-32" />
-                </div>
-              </div>
+            <img src="../images/cafesbanner.png" alt="Cafés" className="w-full h-auto object-cover" />
             </Link>
             <Link to="/accesorios" className="flex-1">
-              <div className="flex flex-col md:flex-row items-stretch justify-between bg-gray-50 py-6 px-6 md:py-12 lg:px-12 h-full">
-                <div className="flex flex-col justify-center md:w-1/2">
-                  <h1 className="text-3xl lg:text-4xl font-semibold text-gray-800">Accesorios</h1>
-                  <p className="text-base lg:text-xl text-gray-800 mt-2">
-                    Ahorra hasta un <span className="font-bold">30%</span>
-                  </p>
-                </div>
-                <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end">
-                  <img src="../images/cat-accesorios.png" alt="Accesorios" className="h-auto max-h-32" />
-                </div>
-              </div>
+                  <img src="../images/accbanner.png" alt="Accesorios" className="w-full h-auto object-cover" />
             </Link>
           </div>
         </div>

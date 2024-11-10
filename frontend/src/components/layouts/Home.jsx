@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <div>
       <Hero/>
-      <SectionsHome titulo="Nuestros productos" descripcion="Esta es una descripción" tipoSeccion="productos" fondo="bg-naranja"/>
-      <SectionsHome titulo="Categorias" descripcion="vive la experiencia del café" tipoSeccion="categoria"fondo="bg-limon"/>
+      <SectionsHome titulo="Nuestros productos" descripcion="¡Granos de selección de todo el mundo!" tipoSeccion="productos" fondo="bg-naranja"/>
+      <SectionsHome titulo="Categorias" descripcion="¡Vive la experiencia del café!" tipoSeccion="categoria" fondo="bg-negro" colortexto="text-white"/>
       <BlogSection/>
     </div>
   )
