@@ -27,6 +27,9 @@ const Navbar = () => {
             <Link to="todos" className=" font-medium hover:text-naranja">
               Todos
             </Link>
+            <Link to="blog" className=" font-medium hover:text-naranja">
+              Blog
+            </Link>
           </div>
         </div>
 

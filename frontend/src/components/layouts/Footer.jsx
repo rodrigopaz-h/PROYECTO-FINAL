@@ -2,15 +2,15 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-green-900 text-gray-200 py-10 px-5 md:px-20">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
+    <footer className="bg-negro text-gray-200 py-10 px-5 md:px-20">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Column 1 */}
         <div>
-          <h3 className="text-yellow-500 font-semibold mb-4">Useful Links</h3>
+          <h3 className="text-yellow-500 font-semibold mb-4">Links útiles</h3>
           <ul className="space-y-2">
             <li>
               <a href="/legal" className="hover:text-yellow-500">
-                Legal & Privacy
+                Políticas y privacidad
               </a>
             </li>
             <li>
@@ -28,11 +28,11 @@ const Footer = () => {
 
         {/* Column 2 */}
         <div>
-          <h3 className="text-yellow-500 font-semibold mb-4">Shop</h3>
+          <h3 className="text-yellow-500 font-semibold mb-4">Tienda</h3>
           <ul className="space-y-2">
             <li>
-              <a href="cafes" className="text-yellow-500">
-                Cafe
+              <a href="cafes" className="hover:text-yellow-500">
+                Café
               </a>
             </li>
             <li>
@@ -84,9 +84,9 @@ const Footer = () => {
 
       {/* Bottom Section */}
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-        <p>&copy; 2022 TailGrids. All Rights Reserved.</p>
+        <p>&copy; 2024 Aroma Café. Todos los derechos reservados.</p>
         <div className="flex space-x-4 mt-4 md:mt-0">
-          <span className="text-gray-400">We Accept:</span>
+          <span className="text-gray-400">Aceptamos:</span>
           <i className="fab fa-cc-paypal text-gray-400"></i>
           <i className="fab fa-cc-visa text-gray-400"></i>
           <i className="fab fa-cc-mastercard text-gray-400"></i>

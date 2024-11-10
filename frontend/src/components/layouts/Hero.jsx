@@ -15,7 +15,7 @@ export default function Hero() {
               <p className="mt-2 text-xs md:text-sm lg:text-lg leading-tight lg:leading-normal">
                 ¡Solo para ti!
               </p>
-              <Button text="Ver productos" to="/todos" />
+              <Button text="Ver productos" to="/todos" bg="bg-negro"/>
             </div>
 
 

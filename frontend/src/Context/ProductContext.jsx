@@ -13,8 +13,9 @@ export const ProductProvider = ({ children }) => {
             try {
                 const cafesResponse = await axios.get('http://localhost:3000/api/cafes'); 
                 const accesoriosResponse = await axios.get('http://localhost:3000/api/accesorios');
-                // Combinamos los productos en un solo array
-                setProductos([...cafesResponse.data, ...accesoriosResponse.data]);
+                // Combinamos los productos y los establecemos en el estado `Productos`
+                const productosCombinados = [...cafesResponse.data, ...accesoriosResponse.data];
+                 setProductos(productosCombinados);
             } catch (error) {
                 console.error("Error al obtener los productos:", error);
             }
@@ -22,6 +23,7 @@ export const ProductProvider = ({ children }) => {
       
         fetchProductos();
     }, []);
+
 
     const agregarAlCarrito = (id) => {
         const productoExistente = Carrito.find((item) => item.id === id);
