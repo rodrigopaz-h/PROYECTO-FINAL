@@ -21,9 +21,6 @@ const PublicationGallery = () => {
     fetchBlogs();
   }, []);
  
-
-
-
   const [mostrarTodo, setMostrarTodo] = useState(false);
 
   const toggleMostrarTodo = () => setMostrarTodo(!mostrarTodo);
