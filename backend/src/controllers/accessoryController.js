@@ -1,4 +1,4 @@
-import AccessoryModel from "../models/AccessoryModel.js";
+import AccessoryModel from "../models/accessoryModel.js";
 
 // Obtener todos los accesorios
 export async function getAllAccessories(req, res) {
