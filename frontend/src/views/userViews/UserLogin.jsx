@@ -58,7 +58,6 @@ const UserLogin = () => {
 
         {/* Botón de Inicio de Sesión */}
         <div>
-           <Button text="Iniciar sesión"/>
           <button
             type="submit"
             className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800"
