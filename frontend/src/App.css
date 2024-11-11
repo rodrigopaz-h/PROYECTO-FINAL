@@ -8,6 +8,10 @@ p, a, body{
     font-family: "Montserrat", sans-serif;
 }
 
+body{
+    background-color: #ead9d5;
+}
+
 .bg-hero{
 background-image: url("../public/images/hero-fondo.png");
 background-size: contain;
@@ -24,4 +28,7 @@ background-position: right bottom;
          url('./assets/fonts/TAN-PEARL-Regular.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
+}
+.boton{
+    border-radius: 20px;
 }

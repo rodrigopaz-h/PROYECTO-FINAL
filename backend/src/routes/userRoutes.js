@@ -13,4 +13,6 @@ router.post("/login", userController.loginUser);
 // router.get("/profile", authMiddleware, userController.showUserProfile);
 // router.put("/profile", authMiddleware, userController.updateUserProfile);
 
+router.get("/", userController.getAllUsers);
+
 export default router;

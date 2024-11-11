@@ -8,27 +8,33 @@ const ProductGallery = () => {
   const { Productos, agregarAlCarrito } = useContext(ProductContext);
   const [sortOrder, setSortOrder] = useState("");
 
-  console.log("Productos en el frontend:", Productos);
-
-
   // Ordenar los productos en función del valor de sortOrder
   const sortedProductos = Productos ? [...Productos] : [];
-if (sortOrder === "asc") {
-  sortedProductos.sort((a, b) => Number(a.precio) - Number(b.precio));
-} else if (sortOrder === "desc") {
-  sortedProductos.sort((a, b) => Number(b.precio) - Number(a.precio));
-}
+  if (sortOrder === "asc") {
+    sortedProductos.sort((a, b) => Number(a.precio) - Number(b.precio));
+  } else if (sortOrder === "desc") {
+    sortedProductos.sort((a, b) => Number(b.precio) - Number(a.precio));
+  }
 
   return (
-    <div>
-      <Title title="Todos los productos" />
-      <div className="text-center p-10">
-        <p>soy yo</p>
+    <div className="container mx-auto p-5">
+      <div className="flex flex-col md:flex-row items-center md:justify-between mb-5">
+        <Title title="Todos los productos" />
         <PriceFilter sortOrder={sortOrder} setSortOrder={setSortOrder} />
-        <section id="Projects" className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-y-20 gap-x-14 mt-10 mb-5">
+      </div>
+
+      <div className="text-center">
+        <section
+          id="Projects"
+          className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-y-20 gap-x-14 mb-5"
+        >
           {sortedProductos.length > 0 ? (
-            sortedProductos.map((producto) => (
-              <Card key={producto.id} producto={producto} agregarAlCarrito={agregarAlCarrito} />
+            sortedProductos.map((producto, index) => (
+              <Card 
+                key={`${producto.id}-${index}`} // Combina id e índice como clave para evitar duplicados
+                producto={producto} 
+                agregarAlCarrito={agregarAlCarrito} 
+              />
             ))
           ) : (
             <p>No hay productos disponibles.</p>

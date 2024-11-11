@@ -4,7 +4,7 @@ const CafeModel = {
   // Obtener todos los cafés
   async getAllCafes() {
     try {
-      const query = "SELECT nombre, origen, precio, imagen_url FROM cafes";
+      const query = "SELECT id, nombre, origen, descripcion, formato, precio, imagen_url, stock, categoria FROM cafes";
       const result = await pool.query(query);
       return result.rows;
     } catch (error) {

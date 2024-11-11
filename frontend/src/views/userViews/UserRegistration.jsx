@@ -106,7 +106,12 @@ const UserRegistration = () => {
 
         {/* Botón de Registro */}
         <div className="mt-6 flex justify-center">
-          <Button to="" text="Registrarme"/>
+        <button
+            type="submit"
+            className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800"
+          >
+            Registrarme
+          </button>
         </div>
       </form>
     </div>

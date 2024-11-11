@@ -20,7 +20,10 @@ export default function ShoppingCart() {
   return (
     <>
     <Title title='Carrito de compras'/>
-    <div className="w-full bg-gray-100 mx-auto p-10">
+    {Carrito.length === 0 ? (
+              <h2 className="text-center text-negro py-8 mb-10">No hay productos en tu carrito</h2>
+            ) : (
+    <div className="w-full mx-auto p-10">
             <div className="sm:flex gap-8">
                 <div className="w-full sm:w-3/4 bg-white p-8 rounded-lg shadow-md border">
                     <div className="flex justify-between border-b pb-8">
@@ -32,7 +35,7 @@ export default function ShoppingCart() {
                             <div key={index} className="md:flex items-stretch py-8 md:py-10 lg:py-8 border-t border-gray-50">
                                 <div className="md:w-4/12 2xl:w-1/4 w-full">
                                     <img
-                                        src={item.imagen} // Asegúrate de que el producto tiene la propiedad imagen
+                                        src={item.imagen_url} // Asegúrate de que el producto tiene la propiedad imagen
                                         alt={item.nombre}
                                         className="h-full object-center object-cover md:block hidden"
                                     />
@@ -61,8 +64,8 @@ export default function ShoppingCart() {
                             </div>
                         ))}
                     <Link to="/">
-                    <p href="#" className="flex font-semibold text-indigo-600 text-sm mt-10">
-                        <svg className="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512">
+                    <p href="#" className="flex font-semibold text-negro text-sm mt-10">
+                        <svg className="fill-current mr-2 text-negro w-4" viewBox="0 0 448 512">
                             <path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" />
                         </svg>
                         Continuar tu compra
@@ -85,7 +88,7 @@ export default function ShoppingCart() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div>)}
     </>
   )
 }
