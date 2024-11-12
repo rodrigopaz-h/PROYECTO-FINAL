@@ -3,7 +3,7 @@ import morgan from "morgan";
 import dotenv from "dotenv";
 import cors from "cors";
 import indexRoutes from "./routes/indexRoutes.js";
-import cors from "cors";
+import userRoutes from "./routes/userRoutes.js"
 
 
 dotenv.config();
