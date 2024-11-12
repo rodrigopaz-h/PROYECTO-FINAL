@@ -5,9 +5,13 @@ import blogRoutes from "./blogRoutes.js";
 import checkoutRoutes from "./checkoutRoutes.js";
 import cafes from "./cafes.js";
 import accesorios from "./accesorios.js";
-// import contactRoutes from "./contactRoutes.js";
 
 const router = express.Router();
+
+// Definición correcta de la ruta /hello
+router.get("/hello", (req, res) => {
+  res.status(200).send("Hello, World!");
+});
 
 // Rutas principales
 router.use("/users", userRoutes); //Faltan funciones en controller
@@ -16,7 +20,5 @@ router.use("/blog", blogRoutes);
 router.use("/checkout", checkoutRoutes);
 router.use("/cafes", cafes);
 router.use("/accesorios", accesorios);
-
-// router.use("/contact", contactRoutes); esta ruta puede ser eliminada porque solo se renderiza desde el front
 
 export default router;

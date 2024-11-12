@@ -1,26 +1,35 @@
 import request from "supertest";
 import app from "../app.js";
 import { signToken } from "../utils/authUtils.js";
-import User from "../models/User.js";
+import pkg from "mocha";
+const { describe, it, before, after } = pkg;
+import { pool } from "../db/config.js";
+import { expect } from "chai";
 
 describe("Checkout Routes", () => {
   let token;
   let productId = "sampleProductId123"; // Puedes actualizar esto con un ID real si tienes productos
 
   // Configuración previa a las pruebas
-  beforeAll(async () => {
-    // Crear un token de autenticación para un usuario de prueba
-    const user = await User.create({
-      username: "testuser",
-      email: "test@example.com",
-      password: "testpassword",
-    });
-    token = signToken({ id: user._id, email: user.email });
+  before(async () => {
+    // Crear un usuario de prueba usando el pool
+    const result = await pool.query(
+      "INSERT INTO users (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) RETURNING id, email",
+      [
+        "firstNameUserTest",
+        "lastNaneUserTest",
+        "test@example.com",
+        "testpassword",
+      ]
+    );
+    const user = result.rows[0];
+    token = signToken({ id: user.id, email: user.email });
   });
 
-  afterAll(async () => {
-    // Eliminar usuario de prueba después de las pruebas
-    await User.deleteOne({ email: "test@example.com" });
+  after(async () => {
+    await pool.query("DELETE FROM users WHERE email = $1", [
+      "test@example.com",
+    ]);
   });
 
   // Prueba para obtener el carrito del usuario
@@ -28,7 +37,7 @@ describe("Checkout Routes", () => {
     const res = await request(app)
       .get("/api/checkout/cart")
       .set("Authorization", `Bearer ${token}`);
-    expect(res.statusCode).toEqual(200);
+    expect(res.statusCode).to.equal(200);
     expect(Array.isArray(res.body.cart)).toBe(true);
   });
 
@@ -38,8 +47,8 @@ describe("Checkout Routes", () => {
       .post("/api/checkout/cart")
       .set("Authorization", `Bearer ${token}`)
       .send({ productId });
-    expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty("message", "Producto añadido al carrito");
+    expect(res.statusCode).to.equal(200);
+    expect(res.body).to.have.property("message", "Producto añadido al carrito");
   });
 
   // Prueba para eliminar un producto del carrito
@@ -47,8 +56,8 @@ describe("Checkout Routes", () => {
     const res = await request(app)
       .delete(`/api/checkout/cart/${productId}`)
       .set("Authorization", `Bearer ${token}`);
-    expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty(
+    expect(res.statusCode).to.equal(200);
+    expect(res.body).to.have.property(
       "message",
       "Producto eliminado del carrito"
     );
@@ -66,8 +75,8 @@ describe("Checkout Routes", () => {
       .post("/api/checkout/shipping-address")
       .set("Authorization", `Bearer ${token}`)
       .send(shippingData);
-    expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty("message", "Dirección de envío guardada");
+    expect(res.statusCode).to.equal(200);
+    expect(res.body).to.have.property("message", "Dirección de envío guardada");
   });
 
   // Prueba para guardar el método de envío
@@ -76,8 +85,8 @@ describe("Checkout Routes", () => {
       .post("/api/checkout/shipping-method")
       .set("Authorization", `Bearer ${token}`)
       .send({ method: "express" });
-    expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty("message", "Método de envío guardado");
+    expect(res.statusCode).to.equal(200);
+    expect(res.body).to.have.property("message", "Método de envío guardado");
   });
 
   // Prueba para procesar el pago
@@ -91,7 +100,9 @@ describe("Checkout Routes", () => {
       .post("/api/checkout/payment")
       .set("Authorization", `Bearer ${token}`)
       .send(paymentData);
-    expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty("message", "Pago procesado con éxito");
+    expect(res.statusCode).to.equal(200);
+    expect(res.body).to.have.property("message", "Pago procesado con éxito");
+
+    await pool.end();
   });
 });
