@@ -8,22 +8,13 @@ dotenv.config();
 
 // Determinar __dirname y __filename solo si no estamos en un entorno de pruebas de Jest
 const isJest = typeof jest !== "undefined";
-
 const __filename = isJest ? __filename : fileURLToPath(import.meta.url);
 const __dirname = isJest ? __dirname : dirname(__filename);
 
-console.log("DB_PASSWORD:", process.env.DB_PASSWORD);
-console.log("Tipo de DB_PASSWORD:", typeof process.env.DB_PASSWORD);
-
-// Configuración inicial de conexión para verificar o crear la base de datos
+// Configuración inicial de conexión utilizando DATABASE_URL
 const initialPool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: "postgres", // Conexión a la base de datos "postgres" por defecto
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
+  connectionString: process.env.DATABASE_URL,
 });
-//datos para la DB en .env
 
 // Crear la base de datos si no existe
 export async function createDatabase() {
@@ -44,16 +35,10 @@ export async function createDatabase() {
   }
 }
 
-// Conexión a la base de datos "aromacafe"
+// Conexión a la base de datos "aromacafe" usando DATABASE_URL
 export const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
+  connectionString: process.env.DATABASE_URL,
 });
-
-
 
 // Crear tablas y vistas desde archivos SQL
 export async function createTablesAndViews() {
@@ -79,7 +64,6 @@ export async function createTablesAndViews() {
   // Verificar que los datos se hayan cargado correctamente
   try {
     const cafes = await pool.query("SELECT * FROM cafes");
-
     const accesorios = await pool.query("SELECT * FROM accesorios");
   } catch (error) {
     console.error("Error al verificar el contenido de las tablas:", error);
