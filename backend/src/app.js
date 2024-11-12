@@ -3,8 +3,6 @@ import morgan from "morgan";
 import dotenv from "dotenv";
 import cors from "cors";
 import indexRoutes from "./routes/indexRoutes.js";
-import cors from "cors";
-
 
 dotenv.config();
 const app = express();
