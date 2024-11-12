@@ -85,4 +85,3 @@ export async function createTablesAndViews() {
     console.error("Error al verificar el contenido de las tablas:", error);
   }
 }
-
