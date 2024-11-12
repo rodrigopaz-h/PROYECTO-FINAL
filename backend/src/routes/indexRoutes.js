@@ -14,8 +14,8 @@ router.get("/hello", (req, res) => {
 });
 
 // Rutas principales
-router.use("/users", userRoutes); //Faltan funciones en controller
-router.use("/products", productRoutes); //Faltan funciones en controller
+router.use("/users", userRoutes);
+router.use("/products", productRoutes);
 router.use("/blog", blogRoutes);
 router.use("/checkout", checkoutRoutes);
 router.use("/cafes", cafes);

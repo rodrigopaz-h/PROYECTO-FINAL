@@ -1,9 +1,9 @@
 import { pool } from "../db/config.js";
+
 const AccessoryModel = {
   // Obtener todos los accesorios
   async getAllAccessories() {
-    const query =
-      "SELECT nombre, origen, precio, imagen_url FROM * FROM accesorios";
+    const query = "SELECT id, nombre, origen, descripcion, precio, imagen_url, stock, categoria FROM accesorios";
     const result = await pool.query(query);
     return result.rows;
   },

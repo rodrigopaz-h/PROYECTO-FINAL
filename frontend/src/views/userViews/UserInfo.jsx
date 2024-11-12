@@ -1,7 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useEffect,useState } from "react";
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 export const UserInfo = () => {
+
+  const [userInfo, setUserInfo] = useState([])
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/users"); 
+        setUserInfo(response.data);
+      } catch (error) {
+        console.error("Error al obtener users:", error);
+      }
+    };
+    fetchUsers();
+  }, []);
+
+  console.log(userInfo)
+
   return (
     <div className="h-[755px] px-[100px] py-[50px] flex-col justify-start items-center inline-flex">
       <div className="w-[1200px] justify-start items-start gap-[100px] inline-flex">

@@ -8,7 +8,7 @@ import { expect } from "chai";
 
 describe("Checkout Routes", () => {
   let token;
-  let productId = "sampleProductId123"; // Puedes actualizar esto con un ID real si tienes productos
+  let productId = "123"; // Puedes actualizar esto con un ID real si tienes productos
 
   // Configuración previa a las pruebas
   before(async () => {
@@ -24,6 +24,16 @@ describe("Checkout Routes", () => {
     );
     const user = result.rows[0];
     token = signToken({ id: user.id, email: user.email });
+
+    // Crear el carrito si no existe
+    const cartResult = await pool.query(
+      "SELECT id FROM carts WHERE user_id = $1",
+      [user.id]
+    );
+    if (cartResult.rows.length === 0) {
+      // Si no existe un carrito, crear uno
+      await pool.query("INSERT INTO carts (user_id) VALUES ($1)", [user.id]);
+    }
   });
 
   after(async () => {

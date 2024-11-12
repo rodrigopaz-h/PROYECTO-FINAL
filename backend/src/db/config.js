@@ -61,7 +61,7 @@ export async function createTablesAndViews() {
     "todos.sql",
     "users.sql",
     "blog.sql",
-    // "checkout.sql", en proceso
+    "checkout.sql",
   ];
   for (const file of sqlFiles) {
     const filePath = path.join(__dirname, file);
@@ -72,5 +72,14 @@ export async function createTablesAndViews() {
     } catch (err) {
       console.error(`Error al ejecutar ${file}:`, err);
     }
+  }
+
+  // Verificar que los datos se hayan cargado correctamente
+  try {
+    const cafes = await pool.query("SELECT * FROM cafes");
+
+    const accesorios = await pool.query("SELECT * FROM accesorios");
+  } catch (error) {
+    console.error("Error al verificar el contenido de las tablas:", error);
   }
 }
