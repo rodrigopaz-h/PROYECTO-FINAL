@@ -53,6 +53,8 @@ export const pool = new Pool({
   port: process.env.DB_PORT,
 });
 
+
+
 // Crear tablas y vistas desde archivos SQL
 export async function createTablesAndViews() {
   const sqlFiles = [
@@ -73,4 +75,14 @@ export async function createTablesAndViews() {
       console.error(`Error al ejecutar ${file}:`, err);
     }
   }
+
+  // Verificar que los datos se hayan cargado correctamente
+  try {
+    const cafes = await pool.query("SELECT * FROM cafes");
+
+    const accesorios = await pool.query("SELECT * FROM accesorios");
+  } catch (error) {
+    console.error("Error al verificar el contenido de las tablas:", error);
+  }
 }
+

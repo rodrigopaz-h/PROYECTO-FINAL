@@ -25,6 +25,17 @@ export const createUser = async (req, res) => {
   }
 };
 
+// Función para obtener todos los usuarios
+export async function getAllUsers(req, res) {
+  try {
+    const allUsers = await UserModel.getAll();
+    res.json(allUsers);
+  } catch (err) {
+    console.error("Error al obtener usuarios:", err);
+    res.status(500).send("Error al obtener usuarios");
+  }
+}
+
 // Función para iniciar sesión
 export async function loginUser(req, res) {
   const { email, password } = req.body;

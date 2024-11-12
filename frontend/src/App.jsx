@@ -15,6 +15,8 @@ import ShippingMethod from "./views/checkoutViews/ShippingMethod";
 import ShippingAlert from "./views/checkoutViews/ShippingAlert";
 import { ProductProvider } from "./Context/ProductContext";
 import { UserProvider } from "./context/UserContext";
+import {BlogProvider} from "./Context/BlogContext";
+import BlogDetail from "./views/generalViews/BlogDetail";
 import ProductDetail from "./views/generalViews/ProductDetail";
 import ProductGallery from "./views/generalViews/ProductGallery";
 import ProductCategory from "./views/generalViews/ProductCategory";
@@ -37,6 +39,7 @@ function App() {
     <>
       <UserProvider>
         <ProductProvider>
+          <BlogProvider>
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -58,7 +61,7 @@ function App() {
             <Route path="/legal" element={<LegalPrivacy />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/micuenta" element={<UserLogin />} />
-            <Route path="/blog/:id" element={<PublicationDetail />} />
+            <Route path="/blog/:id" element={<BlogDetail />} />
             <Route path="/blog" element={<PublicationGallery />} />
             <Route path="/profile" element={<UserInfo />} />
             <Route path="/acceso-seguridad" element={<PasswordResetRequest />} />
@@ -67,6 +70,7 @@ function App() {
             <Route path="/*" element={<NotFound />} />
           </Routes>
           <Footer />
+          </BlogProvider>
         </ProductProvider>
       </UserProvider>
     </>

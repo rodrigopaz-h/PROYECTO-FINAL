@@ -4,10 +4,10 @@ import accessoryController from "../controllers/accessoryController.js";
 const router = express.Router();
 
 // Ruta para obtener todos los accesorios
-router.get("/accesorios", accessoryController.getAllAccessories);
+router.get("/", accessoryController.getAllAccessories);
 
 // Ruta para obtener un accesorio por ID
-router.get("/accesorios/:id", accessoryController.getAccessoryById);
+router.get("/:id", accessoryController.getAccessoryById);
 
 export default router;
 
