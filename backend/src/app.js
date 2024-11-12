@@ -16,9 +16,6 @@ app.use(express.json());
 // Rutas principales
 app.use("/api", indexRoutes);
 
-// Configuración de rutas de usuarios para el registro 
-app.use("/api/users", userRoutes);
-
 // Middleware de manejo de errores
 app.use((err, req, res, next) => {
   console.error(err.stack);
