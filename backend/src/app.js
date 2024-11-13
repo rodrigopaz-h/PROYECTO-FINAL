@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: process.env.DATABASE_URL,
+    origin: process.env.VITE_URL_BASE_SERVER,
     credentials: true,
   })
 );
