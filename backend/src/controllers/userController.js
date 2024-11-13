@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import UserModel from "../models/users.js";
 
 // Función para crear un nuevo usuario
+
 export const createUser = async (req, res) => {
   try {
     const { firstName, lastName, email, password } = req.body;
@@ -66,6 +67,51 @@ export async function loginUser(req, res) {
   }
 }
 
-//Acá debe ir la función de para mostrar el perfil del usuario. se debe llamar "showUserProfile"
+//Acá debe ir la función de para mostrar el perfil del usuario.
+export async function showUserProfile(req, res) {
+  const userId = req.user.id;
+
+  try {
+    const user = await users.findById(userId);
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+
+    res.json(user);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+}
 
 //Acá debe ir la función de para editar el perfil del usuario. se debe llamar "updateUserProfile"
+export async function updateUserProfile(req, res) {
+  const userId = req.user.id;
+  const { first_name, last_name, email, password } = req.body;
+
+  try {
+    const user = await users.findById(userId);
+
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+
+    let updatedPassword = user.password;
+    if (password) {
+      const salt = await bcrypt.genSalt(10);
+      updatedPassword = await bcrypt.hash(password, salt);
+    }
+
+    const updatedUser = await users.update(userId, {
+      first_name,
+      last_name,
+      email,
+      password: updatedPassword,
+    });
+
+    res.json(updatedUser);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+}

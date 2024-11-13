@@ -7,7 +7,12 @@ import indexRoutes from "./routes/indexRoutes.js";
 dotenv.config();
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.VITE_URL_BASE_SERVER,
+    credentials: true,
+  })
+);
 
 // Middlewares globales
 app.use(morgan("dev"));
