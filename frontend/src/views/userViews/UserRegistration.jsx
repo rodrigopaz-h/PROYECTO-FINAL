@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../../context/UserContext';
-import axios from 'axios';
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
+import axios from "axios";
 
 const urlBaseServer = import.meta.env.VITE_URL_BASE_SERVER;
 
@@ -14,13 +14,13 @@ const UserRegistration = () => {
   // Función para manejar el envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const userData = {
-      firstName: e.target['first-name'].value,
-      lastName: e.target['last-name'].value,
-      email: e.target['email'].value,
-      password: e.target['password'].value,
-      confirmPassword: e.target['confirm-password'].value,
+      firstName: e.target["first-name"].value,
+      lastName: e.target["last-name"].value,
+      email: e.target["email"].value,
+      password: e.target["password"].value,
+      confirmPassword: e.target["confirm-password"].value,
     };
 
     if (userData.password !== userData.confirmPassword) {
@@ -29,16 +29,18 @@ const UserRegistration = () => {
     }
 
     try {
-      const response = await axios.post(`${urlBaseServer}/api/users/register`, userData);
+      const response = await axios.post(
+        `${urlBaseServer}/api/users/register`,
+        userData
+      );
 
-      
       if (response.data.success) {
         registerUser(userData);
         setSuccessMessage("Usuario registrado con éxito. Redirigiendo...");
-        
+
         // Agrega un pequeño retraso antes de la redirección para ver el mensaje
         setTimeout(() => {
-          navigate('/login');
+          navigate("/login");
         }, 2000);
       } else {
         setError("Error en el registro");
@@ -50,16 +52,27 @@ const UserRegistration = () => {
   };
 
   return (
-    <div id='form-registro' className="flex justify-center items-center min-h-screen py-20">
-      <form onSubmit={handleSubmit} className="w-full max-w-lg bg-white p-8 shadow-md rounded">
+    <div
+      id="form-registro"
+      className="flex justify-center items-center min-h-screen py-20"
+    >
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-lg bg-white p-8 shadow-md rounded"
+      >
         <h2 className="text-2xl font-semibold mb-6">Crea tu cuenta</h2>
-        
+
         {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-        {successMessage && <p className="text-green-500 text-sm mb-4">{successMessage}</p>}
+        {successMessage && (
+          <p className="text-green-500 text-sm mb-4">{successMessage}</p>
+        )}
 
         {/* Campo de Primer Nombre */}
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="first-name">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="first-name"
+          >
             Nombre *
           </label>
           <input
@@ -73,7 +86,10 @@ const UserRegistration = () => {
 
         {/* Campo de Apellido */}
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="last-name">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="last-name"
+          >
             Apellido *
           </label>
           <input
@@ -87,7 +103,10 @@ const UserRegistration = () => {
 
         {/* Campo de Email */}
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="email"
+          >
             Email *
           </label>
           <input
@@ -101,7 +120,10 @@ const UserRegistration = () => {
 
         {/* Campo de Contraseña */}
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="password"
+          >
             Contraseña *
           </label>
           <input
@@ -112,13 +134,17 @@ const UserRegistration = () => {
             required
           />
           <p className="text-xs text-gray-500 mt-1">
-            La contraseña debe contener caracteres en mayúsculas y minúsculas, números y símbolos.
+            La contraseña debe contener caracteres en mayúsculas y minúsculas,
+            números y símbolos.
           </p>
         </div>
 
         {/* Campo de Confirmación de Contraseña */}
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="confirm-password">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="confirm-password"
+          >
             Vuelve a ingresar contraseña *
           </label>
           <input
