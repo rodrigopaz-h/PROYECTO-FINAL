@@ -1,5 +1,36 @@
--- Tabla de productos 
-CREATE TABLE products (
+-- Eliminar y crear la tabla de usuarios
+DROP TABLE IF EXISTS users CASCADE;
+
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL PRIMARY KEY,
+  first_name VARCHAR(100) NOT NULL,
+  last_name VARCHAR(100) NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insertar usuarios ficticios
+INSERT INTO
+  users (first_name, last_name, email, password)
+VALUES
+  (
+    'John',
+    'Doe',
+    'john.doe@example.com',
+    'password123'
+  ),
+  (
+    'Jane',
+    'Smith',
+    'jane.smith@example.com',
+    'password456'
+  );
+
+-- Eliminar y crear la tabla de productos
+DROP TABLE IF EXISTS products CASCADE;
+
+CREATE TABLE IF NOT EXISTS products (
   id SERIAL PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
   description TEXT,
@@ -37,8 +68,10 @@ VALUES
     30
   );
 
--- Tabla de carritos
-CREATE TABLE carts (
+-- Eliminar y crear la tabla de carritos
+DROP TABLE IF EXISTS carts CASCADE;
+
+CREATE TABLE IF NOT EXISTS carts (
   id SERIAL PRIMARY KEY,
   user_id INT REFERENCES users(id) ON DELETE CASCADE,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -51,8 +84,10 @@ VALUES
   (1),
   (2);
 
--- Tabla de elementos del carrito
-CREATE TABLE cart_items (
+-- Eliminar y crear la tabla de elementos del carrito
+DROP TABLE IF EXISTS cart_items CASCADE;
+
+CREATE TABLE IF NOT EXISTS cart_items (
   id SERIAL PRIMARY KEY,
   cart_id INT REFERENCES carts(id) ON DELETE CASCADE,
   product_id INT REFERENCES products(id),
@@ -60,7 +95,7 @@ CREATE TABLE cart_items (
   UNIQUE (cart_id, product_id)
 );
 
--- Insertar productos en los carritos ficticios
+-- Insertar elementos en los carritos ficticios
 INSERT INTO
   cart_items (cart_id, product_id, quantity)
 VALUES
@@ -73,8 +108,10 @@ VALUES
   (2, 4, 1);
 
 -- 1 unidad de Molinillo de café
--- Tabla de dirección de envío
-CREATE TABLE shipping_addresses (
+-- Eliminar y crear la tabla de direcciones de envío
+DROP TABLE IF EXISTS shipping_addresses CASCADE;
+
+CREATE TABLE IF NOT EXISTS shipping_addresses (
   id SERIAL PRIMARY KEY,
   user_id INT REFERENCES users(id) ON DELETE CASCADE,
   first_name VARCHAR(255) NOT NULL,
@@ -90,8 +127,10 @@ VALUES
   (1, 'John', 'Doe', '123 Main St, Ciudad, 12345'),
   (2, 'Jane', 'Smith', '456 Elm St, Ciudad, 67890');
 
--- Tabla de métodos de envío
-CREATE TABLE shipping_methods (
+-- Eliminar y crear la tabla de métodos de envío
+DROP TABLE IF EXISTS shipping_methods CASCADE;
+
+CREATE TABLE IF NOT EXISTS shipping_methods (
   id SERIAL PRIMARY KEY,
   user_id INT REFERENCES users(id) ON DELETE CASCADE,
   method_name VARCHAR(100) NOT NULL,
@@ -112,8 +151,10 @@ VALUES
   (1, 'Envío estándar', 5.99, '3-5 días'),
   (2, 'Envío exprés', 9.99, '1-2 días');
 
--- Tabla de pagos
-CREATE TABLE payments (
+-- Eliminar y crear la tabla de pagos
+DROP TABLE IF EXISTS payments CASCADE;
+
+CREATE TABLE IF NOT EXISTS payments (
   id SERIAL PRIMARY KEY,
   user_id INT REFERENCES users(id) ON DELETE CASCADE,
   amount DECIMAL(10, 2) NOT NULL,
