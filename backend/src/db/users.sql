@@ -1,5 +1,7 @@
-DROP TABLE IF EXISTS users;
-CREATE TABLE users (
+DROP TABLE IF EXISTS users CASCADE;
+
+-- Tabla de usuarioss
+CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
@@ -8,4 +10,24 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-SELECT * FROM users
+-- Insertar usuarios ficticios
+INSERT INTO
+    users (
+        first_name,
+        last_name,
+        email,
+        password
+    )
+VALUES
+    (
+        'John',
+        'Doe',
+        'john.doe@example.com',
+        'password123'
+    ),
+    (
+        'Jane',
+        'Smith',
+        'jane.smith@example.com',
+        'password456'
+    );
