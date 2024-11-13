@@ -10,8 +10,8 @@ router.post("/login", userController.loginUser);
 // router.post("/password-reset", userController.passwordResetRequest);
 
 // // Rutas protegidas para perfil de usuario
-// router.get("/profile", authMiddleware, userController.showUserProfile);
-// router.put("/profile", authMiddleware, userController.updateUserProfile);
+router.get("/profile", authMiddleware, userController.showUserProfile);
+router.put("/profile", authMiddleware, userController.updateUserProfile);
 
 router.get("/", userController.getAllUsers);
 

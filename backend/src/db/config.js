@@ -53,8 +53,6 @@ export const pool = new Pool({
   port: process.env.DB_PORT,
 });
 
-
-
 // Crear tablas y vistas desde archivos SQL
 export async function createTablesAndViews() {
   const sqlFiles = [
@@ -63,7 +61,7 @@ export async function createTablesAndViews() {
     "todos.sql",
     "users.sql",
     "blog.sql",
-    // "checkout.sql", en proceso
+    "checkout.sql",
   ];
   for (const file of sqlFiles) {
     const filePath = path.join(__dirname, file);
@@ -85,4 +83,3 @@ export async function createTablesAndViews() {
     console.error("Error al verificar el contenido de las tablas:", error);
   }
 }
-

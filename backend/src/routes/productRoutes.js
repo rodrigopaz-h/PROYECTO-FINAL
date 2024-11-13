@@ -5,8 +5,8 @@ const router = express.Router();
 
 // Rutas públicas para productos
 router.get("/", todosController.getAllProducts);
-// router.get("/:id", todosController.getProduct);
-// router.get("/category/:category",todosControllerController.getProductsByCategory);
+router.get("/:id", todosController.getProduct);
+router.get("/category/:category", todosController.getProductsByCategory);
 
 // // Rutas protegidas para administración de productos
 // router.post("/create",authMiddleware,todosControllertController.createProduct);

@@ -1,5 +1,8 @@
 import request from "supertest";
 import app from "../app.js";
+import pkg from "mocha";
+const { describe, it } = pkg;
+import { expect } from "chai";
 
 describe("Contact Routes", () => {
   // Prueba para enviar el formulario de contacto
@@ -12,8 +15,11 @@ describe("Contact Routes", () => {
 
     const res = await request(app).post("/api/contact/submit").send(formData);
 
-    expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty("message", "Formulario enviado con éxito");
+    expect(res.statusCode).to.equal(200);
+    expect(res.body).to.have.property(
+      "message",
+      "Formulario enviado con éxito"
+    );
   });
 
   // Prueba para enviar el formulario de contacto con datos faltantes
@@ -25,8 +31,8 @@ describe("Contact Routes", () => {
 
     const res = await request(app).post("/api/contact/submit").send(formData);
 
-    expect(res.statusCode).toEqual(400);
-    expect(res.body).toHaveProperty(
+    expect(res.statusCode).to.equal(400);
+    expect(res.body).to.have.property(
       "message",
       "Todos los campos son obligatorios"
     );

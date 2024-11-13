@@ -1,0 +1,5 @@
+{
+  "extension": ["js"],
+  "spec": "src/tests/**/*.test.js",
+  "require": ["chai/register-expect.js"]
+}
