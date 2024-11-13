@@ -1,7 +1,7 @@
 import request from "supertest";
 import app from "../app.js";
 import { signToken } from "../utils/authUtils.js";
-import User from "../models/User.js";
+import User from "../models/users.js";
 
 describe("Checkout Routes", () => {
   let token;

@@ -8,13 +8,22 @@ dotenv.config();
 
 // Determinar __dirname y __filename solo si no estamos en un entorno de pruebas de Jest
 const isJest = typeof jest !== "undefined";
+
 const __filename = isJest ? __filename : fileURLToPath(import.meta.url);
 const __dirname = isJest ? __dirname : dirname(__filename);
 
-// Configuración inicial de conexión utilizando DATABASE_URL
+console.log("DB_PASSWORD:", process.env.DB_PASSWORD);
+console.log("Tipo de DB_PASSWORD:", typeof process.env.DB_PASSWORD);
+
+// Configuración inicial de conexión para verificar o crear la base de datos
 const initialPool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: "postgres", // Conexión a la base de datos "postgres" por defecto
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
+//datos para la DB en .env
 
 // Crear la base de datos si no existe
 export async function createDatabase() {
@@ -35,9 +44,13 @@ export async function createDatabase() {
   }
 }
 
-// Conexión a la base de datos "aromacafe" usando DATABASE_URL
+// Conexión a la base de datos "aromacafe"
 export const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
 
 // Crear tablas y vistas desde archivos SQL
@@ -57,15 +70,16 @@ export async function createTablesAndViews() {
       await pool.query(sql);
       console.log(`Ejecución de '${file}' completada.`);
     } catch (err) {
-      console.error(`Error al ejecutar ${file}:`, err);
+      console.error(`Error al ejecutar ${file}:, err`);
     }
   }
 
   // Verificar que los datos se hayan cargado correctamente
   try {
     const cafes = await pool.query("SELECT * FROM cafes");
+
     const accesorios = await pool.query("SELECT * FROM accesorios");
   } catch (error) {
-    console.error("Error al verificar el contenido de las tablas:", error);
+    console.error(`Error al verificar el contenido de las tablas:", error`);
   }
 }
