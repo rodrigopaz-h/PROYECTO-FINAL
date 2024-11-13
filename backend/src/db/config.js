@@ -61,7 +61,7 @@ export async function createTablesAndViews() {
     "todos.sql",
     "users.sql",
     "blog.sql",
-    // "checkout.sql", en proceso
+    "checkout.sql",
   ];
   for (const file of sqlFiles) {
     const filePath = path.join(__dirname, file);
