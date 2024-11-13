@@ -9,11 +9,11 @@ export default function Hero() {
         
             {/* Texto de la promoción */}
             <div className="order-2 lg:order-1 flex flex-col lg:justify-center lg:items-center lg:text-center text-left">
-              <h1 className="text-3xl md:text-4xl lg:text-7xl font-bold text-negro-600 leading-relaxed lg:leading-snug">
+              <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-negro-600 leading-relaxed lg:leading-snug">
                 Degusta el mejor café
               </h1>
               <p className="mt-2 text-xs md:text-sm lg:text-lg leading-tight lg:leading-normal">
-                ¡Solo para ti!
+                ¡Granos con notas frutales!
               </p>
               <Button text="Ver productos" to="/todos" bg="bg-negro"/>
             </div>

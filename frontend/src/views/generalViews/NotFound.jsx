@@ -1,112 +1,23 @@
-import React, { useEffect } from 'react';
-import { Link } from "react-router-dom";
-import "./NotFound.css"; // Asegúrate de que el archivo CSS esté correctamente ubicado y enlazado
+import Button from "../../components/layouts/Button"
 
-const NotFound = () => {
-  useEffect(() => {
-    drawVisor();
-    animate();
-  }, []);
-
-  const drawVisor = () => {
-    const canvas = document.getElementById('visor');
-    const ctx = canvas.getContext('2d');
-    
-    ctx.beginPath();
-    ctx.moveTo(5, 45);
-    ctx.bezierCurveTo(15, 64, 45, 64, 55, 45);
-    ctx.lineTo(55, 20);
-    ctx.bezierCurveTo(55, 15, 50, 10, 45, 10);
-    ctx.lineTo(15, 10);
-    ctx.bezierCurveTo(15, 10, 5, 10, 5, 20);
-    ctx.lineTo(5, 45);
-    
-    ctx.fillStyle = '#2f3640';
-    ctx.strokeStyle = '#f5f6fa';
-    ctx.fill();
-    ctx.stroke();
-  };
-
-  const animate = () => {
-    const cordCanvas = document.getElementById('cord');
-    const ctx = cordCanvas.getContext('2d');
-    let y1 = 160, y2 = 100, y3 = 100;
-    let y1Forward = true, y2Forward = false, y3Forward = true;
-
-    const animateCord = () => {
-      requestAnimationFrame(animateCord);
-      ctx.clearRect(0, 0, cordCanvas.width, cordCanvas.height);
-      ctx.beginPath();
-      ctx.moveTo(130, 170);
-      ctx.bezierCurveTo(250, y1, 345, y2, 400, y3);
-      ctx.strokeStyle = 'white';
-      ctx.lineWidth = 8;
-      ctx.stroke();
-
-      y1Forward ? y1 += 1 : y1 -= 1;
-      y2Forward ? y2 += 1 : y2 -= 1;
-      y3Forward ? y3 += 1 : y3 -= 1;
-
-      if (y1 === 100) y1Forward = true;
-      if (y1 === 300) y1Forward = false;
-      if (y2 === 100) y2Forward = true;
-      if (y2 === 310) y2Forward = false;
-      if (y3 === 100) y3Forward = true;
-      if (y3 === 317) y3Forward = false;
-    };
-    animateCord();
-  };
-
+export default function NotFound() {
   return (
-    <div className="not-found-container">
-      <div className="moon"></div>
-      <div className="moon__crater moon__crater1"></div>
-      <div className="moon__crater moon__crater2"></div>
-      <div className="moon__crater moon__crater3"></div>
-
-      <div className="star star1"></div>
-      <div className="star star2"></div>
-      <div className="star star3"></div>
-      <div className="star star4"></div>
-      <div className="star star5"></div>
-
-      <div className="error">
-        <div className="error__title">404</div>
-        <div className="error__subtitle">Hmmm...</div>
-        <div className="error__description">It looks like one of the developers fell asleep</div>
-        <button className="error__button error__button--active">LOGIN</button>
-        <button className="error__button">CONTACT</button>
-      </div>
-
-      <div className="astronaut">
-        <div className="astronaut__backpack"></div>
-        <div className="astronaut__body"></div>
-        <div className="astronaut__body__chest"></div>
-        <div className="astronaut__arm-left1"></div>
-        <div className="astronaut__arm-left2"></div>
-        <div className="astronaut__arm-right1"></div>
-        <div className="astronaut__arm-right2"></div>
-        <div className="astronaut__arm-thumb-left"></div>
-        <div className="astronaut__arm-thumb-right"></div>
-        <div className="astronaut__leg-left"></div>
-        <div className="astronaut__leg-right"></div>
-        <div className="astronaut__foot-left"></div>
-        <div className="astronaut__foot-right"></div>
-        <div className="astronaut__wrist-left"></div>
-        <div className="astronaut__wrist-right"></div>
-
-        <div className="astronaut__cord">
-          <canvas id="cord" height="500px" width="500px"></canvas>
-        </div>
-
-        <div className="astronaut__head">
-          <canvas id="visor" width="60px" height="60px"></canvas>
-          <div className="astronaut__head-visor-flare1"></div>
-          <div className="astronaut__head-visor-flare2"></div>
-        </div>
-      </div>
+    <div>
+      <div class="w-full h-screen flex flex-col lg:flex-row items-center justify-center space-y-16 lg:space-y-0 space-x-8 2xl:space-x-0">
+    <div class="w-full lg:w-1/2 flex flex-col items-center justify-center lg:px-2 xl:px-0 text-center">
+        <p class="text-7xl md:text-8xl lg:text-9xl font-bold tracking-wider text-negro">404</p>
+        <p class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider text-negro mt-2">Página no encontrada</p>
+        <p class="text-lg md:text-xl lg:text-2xl text-gray-500 my-12">Disculpa, no encontramos lo que buscas.</p>
+        <Button text="Regresar al home" to="/"/>
     </div>
-  );
-};
-
-export default NotFound;
+    <div class="w-1/2 lg:h-full flex lg:items-end justify-center p-4">
+    <img
+                className="h-80 w-80 object-contain lg:w-[500px] lg:h-[500px]"
+                src="../images/cafecito.png"
+                alt="404"
+              />
+    </div>
+</div>
+    </div>
+  )
+}
