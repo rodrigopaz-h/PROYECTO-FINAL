@@ -76,10 +76,9 @@ describe("Checkout Routes", () => {
   // Prueba para guardar la dirección de envío
   it("should save the shipping address", async () => {
     const shippingData = {
+      first_name: "John",
+      last_name: "Doe",
       address: "123 Test St",
-      city: "Test City",
-      postalCode: "12345",
-      country: "Test Country",
     };
     const res = await request(app)
       .post("/api/checkout/shipping-address")
