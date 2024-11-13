@@ -1,11 +1,15 @@
 /* Header fonts */
 
 h1, h2, h3, h4, h5{
-    font-family: "Dongle", serif;
+    font-family: "Tan", serif;
 }
 
 p, a, body{
-    font-family: "Quicksand", serif;
+    font-family: "Montserrat", sans-serif;
+}
+
+body{
+    background-color: #ead9d5;
 }
 
 .bg-hero{
@@ -14,4 +18,17 @@ background-size: contain;
 background-repeat: no-repeat;
 background-color: #FFF5E9;
 background-position: right bottom;
+}
+
+/* Fonts src/index.css */
+@font-face {
+    font-family: 'Tan';
+    src: url('./assets/fonts/TAN-PEARL-Regular.woff2') format('woff2'),
+         url('./assets/fonts/TAN-PEARL-Regular.woff') format('woff'),
+         url('./assets/fonts/TAN-PEARL-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+.boton{
+    border-radius: 20px;
 }

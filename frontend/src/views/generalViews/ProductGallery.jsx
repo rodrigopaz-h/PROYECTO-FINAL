@@ -1,36 +1,48 @@
 import Title from "../../components/layouts/Title";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ProductContext } from "../../Context/ProductContext";
-import { Link } from "react-router-dom";
 import Card from "../../components/layouts/Card";
-
-
+import PriceFilter from "../../components/layouts/PriceFilter";
 
 const ProductGallery = () => {
+  const { Productos, agregarAlCarrito } = useContext(ProductContext);
+  const [sortOrder, setSortOrder] = useState("");
 
-    const { Productos, agregarAlCarrito } = useContext(ProductContext);
+  // Ordenar los productos en función del valor de sortOrder
+  const sortedProductos = Productos ? [...Productos] : [];
+  if (sortOrder === "asc") {
+    sortedProductos.sort((a, b) => Number(a.precio) - Number(b.precio));
+  } else if (sortOrder === "desc") {
+    sortedProductos.sort((a, b) => Number(b.precio) - Number(a.precio));
+  }
 
-    return (
-        <div>
-            <Title title='Categoría' />
-            <div className="text-center p-10">
-                <section id="Projects" className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
-                    {/* Mapea los productos del contexto directamente */}
-                    {Productos && Productos.length > 0 ? (
-                        Productos.map((producto) => (
-                            <Card 
-                                key={producto.id} 
-                                producto={producto}  // Cambiado de product a producto
-                                agregarAlCarrito={agregarAlCarrito} 
-                            />
-                        ))
-                    ) : (
-                        <p>No hay productos disponibles.</p>
-                    )}
-                </section>
-            </div>
-        </div>
-    );
+  return (
+    <div className="container mx-auto p-5">
+      <div className="flex flex-col md:flex-row items-center md:justify-between mb-5">
+        <Title title="Todos los productos" />
+        <PriceFilter sortOrder={sortOrder} setSortOrder={setSortOrder} />
+      </div>
+
+      <div className="text-center">
+        <section
+          id="Projects"
+          className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-y-20 gap-x-14 mb-5"
+        >
+          {sortedProductos.length > 0 ? (
+            sortedProductos.map((producto, index) => (
+              <Card 
+                key={`${producto.id}-${index}`} // Combina id e índice como clave para evitar duplicados
+                producto={producto} 
+                agregarAlCarrito={agregarAlCarrito} 
+              />
+            ))
+          ) : (
+            <p>No hay productos disponibles.</p>
+          )}
+        </section>
+      </div>
+    </div>
+  );
 };
 
 export default ProductGallery;

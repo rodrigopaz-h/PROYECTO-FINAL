@@ -1,10 +1,14 @@
 import express from "express";
 import cafeController from "../controllers/cafeController.js";
 
+
 const router = express.Router();
 
 // Ruta para obtener todos los cafés
-router.get("/cafes", cafeController.getAllCafes);
+//router.get("/cafes", cafeController.getAllCafes);
+
+// Ruta para obtener todos los cafés
+router.get("/", cafeController.getAllCafes);
 
 // Ruta para obtener un café por ID
 router.get("/cafes/:id", cafeController.getCafeById);
