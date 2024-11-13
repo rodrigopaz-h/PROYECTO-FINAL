@@ -1,5 +1,8 @@
 import request from "supertest";
-import app from "../app";
+import app from "../app.js";
+import pkg from "mocha";
+const { describe, it } = pkg;
+import { expect } from "chai";
 
 describe("User Routes", () => {
   let token;
@@ -7,12 +10,13 @@ describe("User Routes", () => {
   // Test para registro de usuario
   it("should register a new user", async () => {
     const res = await request(app).post("/api/users/register").send({
-      username: "testuser",
+      first_name: "firstNameUserTest",
+      last_name: "lastNaneUserTest",
       email: "testuser@example.com",
       password: "testpassword123",
     });
-    expect(res.statusCode).toEqual(201);
-    expect(res.body).toHaveProperty("token");
+    expect(res.statusCode).to.equal(201);
+    expect(res.body).to.have.property("token");
     expect(res.body.message).toBe("Usuario registrado con éxito");
     token = res.body.token;
   });
@@ -23,8 +27,8 @@ describe("User Routes", () => {
       email: "testuser@example.com",
       password: "testpassword123",
     });
-    expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty("token");
+    expect(res.statusCode).to.equal(200);
+    expect(res.body).to.have.property("token");
     expect(res.body.message).toBe("Inicio de sesión exitoso");
     token = res.body.token;
   });
@@ -34,7 +38,7 @@ describe("User Routes", () => {
     const res = await request(app)
       .get("/api/users/profile")
       .set("Authorization", `Bearer ${token}`);
-    expect(res.statusCode).toEqual(200);
-    expect(res.body.user).toHaveProperty("username", "testuser");
+    expect(res.statusCode).to.equal(200);
+    expect(res.body.user).to.have.property("username", "testuser");
   });
 });
