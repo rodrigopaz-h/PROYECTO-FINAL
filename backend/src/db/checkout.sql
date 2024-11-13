@@ -1,4 +1,4 @@
---Tabla de productos
+-- Tabla de productos 
 CREATE TABLE products (
   id SERIAL PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
@@ -8,12 +8,48 @@ CREATE TABLE products (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Insertar productos ficticios
+INSERT INTO
+  products (name, description, price, stock)
+VALUES
+  (
+    'Café Arábica',
+    'Café de grano arábica',
+    5.99,
+    100
+  ),
+  (
+    'Café Robusta',
+    'Café de grano robusta',
+    4.99,
+    150
+  ),
+  (
+    'Taza de cerámica',
+    'Taza de cerámica blanca',
+    2.99,
+    50
+  ),
+  (
+    'Molinillo de café',
+    'Molinillo manual de café',
+    15.49,
+    30
+  );
+
 -- Tabla de carritos
 CREATE TABLE carts (
   id SERIAL PRIMARY KEY,
   user_id INT REFERENCES users(id) ON DELETE CASCADE,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Insertar carritos ficticios
+INSERT INTO
+  carts (user_id)
+VALUES
+  (1),
+  (2);
 
 -- Tabla de elementos del carrito
 CREATE TABLE cart_items (
@@ -24,7 +60,20 @@ CREATE TABLE cart_items (
   UNIQUE (cart_id, product_id)
 );
 
--- Tabla de direccion de envío
+-- Insertar productos en los carritos ficticios
+INSERT INTO
+  cart_items (cart_id, product_id, quantity)
+VALUES
+  (1, 1, 2),
+  -- 2 unidades de Café Arábica
+  (1, 3, 1),
+  -- 1 unidad de Taza de cerámica
+  (2, 2, 3),
+  -- 3 unidades de Café Robusta
+  (2, 4, 1);
+
+-- 1 unidad de Molinillo de café
+-- Tabla de dirección de envío
 CREATE TABLE shipping_addresses (
   id SERIAL PRIMARY KEY,
   user_id INT REFERENCES users(id) ON DELETE CASCADE,
@@ -33,6 +82,13 @@ CREATE TABLE shipping_addresses (
   address VARCHAR(255) NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Insertar direcciones de envío ficticias
+INSERT INTO
+  shipping_addresses (user_id, first_name, last_name, address)
+VALUES
+  (1, 'John', 'Doe', '123 Main St, Ciudad, 12345'),
+  (2, 'Jane', 'Smith', '456 Elm St, Ciudad, 67890');
 
 -- Tabla de métodos de envío
 CREATE TABLE shipping_methods (
@@ -44,6 +100,18 @@ CREATE TABLE shipping_methods (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Insertar métodos de envío ficticios
+INSERT INTO
+  shipping_methods (
+    user_id,
+    method_name,
+    cost,
+    estimated_delivery_time
+  )
+VALUES
+  (1, 'Envío estándar', 5.99, '3-5 días'),
+  (2, 'Envío exprés', 9.99, '1-2 días');
+
 -- Tabla de pagos
 CREATE TABLE payments (
   id SERIAL PRIMARY KEY,
@@ -53,3 +121,10 @@ CREATE TABLE payments (
   payment_method VARCHAR(50),
   payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Insertar pagos ficticios
+INSERT INTO
+  payments (user_id, amount, payment_status, payment_method)
+VALUES
+  (1, 15.97, 'Completado', 'Tarjeta de crédito'),
+  (2, 34.47, 'Pendiente', 'PayPal');
