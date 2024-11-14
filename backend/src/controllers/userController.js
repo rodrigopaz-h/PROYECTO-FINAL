@@ -1,4 +1,3 @@
-import users from "../models/users.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import UserModel from "../models/users.js";
@@ -16,13 +15,26 @@ export const createUser = async (req, res) => {
     }
 
     // Crea el nuevo usuario en la base de datos
-    const newUser = await UserModel.create(firstName, lastName, email, password);
+    const newUser = await UserModel.create(
+      firstName,
+      lastName,
+      email,
+      password
+    );
 
     // Envía una respuesta exitosa
-    res.status(201).json({ success: true, message: "Usuario creado exitosamente", user: newUser });
+    res
+      .status(201)
+      .json({
+        success: true,
+        message: "Usuario creado exitosamente",
+        user: newUser,
+      });
   } catch (error) {
     console.error("Error al crear el usuario:", error);
-    res.status(500).json({ message: "Error interno del servidor al crear el usuario" });
+    res
+      .status(500)
+      .json({ message: "Error interno del servidor al crear el usuario" });
   }
 };
 
