@@ -45,6 +45,8 @@ const UserRegistration = () => {
         `${urlBaseServer}/api/users/register`,
         userData
       );
+      
+      console.log("Respuesta del servidor:", response.data);
 
       if (response.data.success) {
         registerUser(userData);
@@ -91,6 +93,7 @@ const UserRegistration = () => {
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-black"
             type="text"
             id="first-name"
+            name="first-name"
             placeholder="Ingresa tu nombre"
             required
           />
@@ -108,6 +111,7 @@ const UserRegistration = () => {
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-black"
             type="text"
             id="last-name"
+            name="last-name"
             placeholder="Ingresa tu apellido"
             required
           />
@@ -125,6 +129,7 @@ const UserRegistration = () => {
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-black"
             type="email"
             id="email"
+            name="email"
             placeholder="Ingresa tu email"
             required
           />
@@ -142,6 +147,7 @@ const UserRegistration = () => {
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-black"
             type="password"
             id="password"
+            name="password"
             placeholder="Ingresa contraseña"
             required
           />
@@ -163,6 +169,7 @@ const UserRegistration = () => {
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-black"
             type="password"
             id="confirm-password"
+            name="confirm-password"
             placeholder="Ingresa contraseña"
             required
           />

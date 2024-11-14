@@ -16,7 +16,6 @@ export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
-// Crear tablas y vistas desde archivos SQL
 export async function createTablesAndViews() {
   const sqlFiles = ["cafes.sql", "accesorios.sql", "todos.sql", "users.sql", "blog.sql", "checkout.sql"];
   for (const file of sqlFiles) {
@@ -26,7 +25,7 @@ export async function createTablesAndViews() {
       await pool.query(sql);
       console.log(`Ejecución de '${file}' completada.`);
     } catch (err) {
-      console.error(`Error al ejecutar ${file}:`, err); // Corregido el error de formato
+      console.error(`Error al ejecutar ${file}:`, err);
     }
   }
 }
