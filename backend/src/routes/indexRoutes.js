@@ -14,11 +14,11 @@ router.get("/hello", (req, res) => {
 });
 
 // Rutas principales
-router.use("/api/users", userRoutes);
-router.use("/api/products", productRoutes);
-router.use("/api/blog", blogRoutes);
-router.use("/api/checkout", checkoutRoutes);
-router.use("/api/cafes", cafes);
-router.use("/api/accesorios", accesorios);
+router.use("/users", userRoutes);
+router.use("/products", productRoutes);
+router.use("/blog", blogRoutes);
+router.use("/checkout", checkoutRoutes);
+router.use("/cafes", cafes);
+router.use("/accesorios", accesorios);
 
 export default router;
