@@ -15,7 +15,7 @@ router.get("/hello", (req, res) => {
 
 // Rutas principales
 router.use("/users", userRoutes);
-router.get("/products", productRoutes);
+router.use("/products", productRoutes);
 router.use("/blog", blogRoutes);
 router.use("/checkout", checkoutRoutes);
 router.use("/cafes", cafes);

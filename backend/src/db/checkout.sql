@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS products (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+--Recomendación: Podrías agregar una columna para la categoría del producto (por ejemplo, category_id), lo cual podría ser útil si más adelante deseas expandir la funcionalidad para tener diferentes categorías de productos.
 -- Insertar productos ficticios
 INSERT INTO
   products (name, description, price, stock)
@@ -95,6 +96,7 @@ CREATE TABLE IF NOT EXISTS cart_items (
   UNIQUE (cart_id, product_id)
 );
 
+--Recomendación: La restricción UNIQUE (cart_id, product_id) es adecuada para evitar que el mismo producto se agregue más de una vez al carrito. Sin embargo, si el producto se repite (por ejemplo, 2 unidades de un producto), no se está manejando en esta tabla. Podrías considerar agregar una columna quantity y manejar la cantidad de cada producto dentro del carrito.
 -- Insertar elementos en los carritos ficticios
 INSERT INTO
   cart_items (cart_id, product_id, quantity)
