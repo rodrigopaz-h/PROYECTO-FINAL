@@ -1,6 +1,7 @@
 import request from "supertest";
 import app from "../app.js";
 import { signToken } from "../utils/authUtils.js";
+import user from "../models/users.js";
 import pkg from "mocha";
 const { describe, it, before, after } = pkg;
 import { pool } from "../db/config.js";

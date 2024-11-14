@@ -1,28 +1,29 @@
-import { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
+import { createContext, useState, useEffect } from "react";
+import axios from "axios";
 
 export const BlogContext = createContext();
 
 export const BlogProvider = ({ children }) => {
-    const [Blogs, setBlogs] = useState([]);
+  const [Blogs, setBlogs] = useState([]);
 
-    // Cargar los blogs desde el backend al montar el componente
-    useEffect(() => {
-        const fetchBlogs = async () => {
-            try {
-                const response = await axios.get('http://localhost:3000/api/blog');
-                setBlogs(response.data);
-            } catch (error) {
-                console.error("Error al obtener los blogs:", error);
-            }
-        };
+  // Cargar los blogs desde el backend al montar el componente
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const baseUrl = import.meta.env.VITE_URL_BASE_SERVER;
 
-        fetchBlogs();
-    }, []);
+        const response = await axios.get(`${baseUrl}/api/blog`);
 
-    return (
-        <BlogContext.Provider value={{ Blogs }}>
-            {children}
-        </BlogContext.Provider>
-    );
+        setBlogs(response.data);
+      } catch (error) {
+        console.error("Error al obtener los blogs:", error);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
+  return (
+    <BlogContext.Provider value={{ Blogs }}>{children}</BlogContext.Provider>
+  );
 };

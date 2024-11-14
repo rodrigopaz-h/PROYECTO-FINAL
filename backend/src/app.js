@@ -3,13 +3,16 @@ import morgan from "morgan";
 import dotenv from "dotenv";
 import cors from "cors";
 import indexRoutes from "./routes/indexRoutes.js";
-import cors from "cors";
-
 
 dotenv.config();
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+  })
+);
 
 // Middlewares globales
 app.use(morgan("dev"));
@@ -17,9 +20,6 @@ app.use(express.json());
 
 // Rutas principales
 app.use("/api", indexRoutes);
-
-// Configuración de rutas de usuarios para el registro 
-app.use("/api/users", userRoutes);
 
 // Middleware de manejo de errores
 app.use((err, req, res, next) => {
