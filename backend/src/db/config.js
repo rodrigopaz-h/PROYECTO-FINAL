@@ -65,7 +65,7 @@ export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
-Crear tablas y vistas desde archivos SQL
+// Crear tablas y vistas desde archivos SQL
 export async function createTablesAndViews() {
   const sqlFiles = [
     "cafes.sql",
