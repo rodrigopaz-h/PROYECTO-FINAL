@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import app from "./app.js";
-// import { createDatabase, createTablesAndViews } from "./db/config.js";
+import { createTablesAndViews } from "./db/config.js";
 
 dotenv.config();
 
