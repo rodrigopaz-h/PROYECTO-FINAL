@@ -87,10 +87,10 @@ export async function createTablesAndViews() {
   }
 
   // Verificar que los datos se hayan cargado correctamente
-  try {
-    const cafes = await pool.query("SELECT * FROM cafes");
-    const accesorios = await pool.query("SELECT * FROM accesorios");
-  } catch (error) {
-    console.error("Error al verificar el contenido de las tablas:", error); // Corregido el error de formato
-  }
-}
+//   try {
+//     const cafes = await pool.query("SELECT * FROM cafes");
+//     const accesorios = await pool.query("SELECT * FROM accesorios");
+//   } catch (error) {
+//     console.error("Error al verificar el contenido de las tablas:", error); // Corregido el error de formato
+//   }
+// }
