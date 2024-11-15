@@ -10,6 +10,7 @@ const ProductCategory = () => {
   const [sortOrder, setSortOrder] = useState("");
   const location = useLocation();
   const rutaActual = location.pathname;
+  console.log(Productos)
 
   const categoriaActual = rutaActual.replace("/", "").toLowerCase();
   const tituloCat = categoriaActual.charAt(0).toUpperCase() + categoriaActual.slice(1);

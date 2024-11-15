@@ -7,15 +7,26 @@ export const ProductProvider = ({ children }) => {
     const [Productos, setProductos] = useState([]);
     const [Carrito, setCarrito] = useState([]);
 
-    // Cargar los productos desde el backend al montar el componente
     useEffect(() => {
         const fetchProductos = async () => {
             try {
                 const cafesResponse = await axios.get('http://localhost:3000/api/cafes'); 
                 const accesoriosResponse = await axios.get('http://localhost:3000/api/accesorios');
+                
+                // Generamos un ID numérico único
+                let idCounter = 1;
+                const cafesConId = cafesResponse.data.map((producto) => ({
+                    ...producto,
+                    id: idCounter++
+                }));
+                const accesoriosConId = accesoriosResponse.data.map((producto) => ({
+                    ...producto,
+                    id: idCounter++
+                }));
+
                 // Combinamos los productos y los establecemos en el estado `Productos`
-                const productosCombinados = [...cafesResponse.data, ...accesoriosResponse.data];
-                 setProductos(productosCombinados);
+                const productosCombinados = [...cafesConId, ...accesoriosConId];
+                setProductos(productosCombinados);
             } catch (error) {
                 console.error("Error al obtener los productos:", error);
             }
@@ -23,6 +34,7 @@ export const ProductProvider = ({ children }) => {
       
         fetchProductos();
     }, []);
+
 
 
     const agregarAlCarrito = (id) => {
