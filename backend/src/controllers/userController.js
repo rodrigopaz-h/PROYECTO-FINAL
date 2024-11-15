@@ -13,8 +13,7 @@ export const createUser = async (req, res) => {
       return res.status(400).json({ message: "El usuario ya existe" });
     }
 
-    // Hashea la contraseña antes de almacenarla
-    const hashedPassword = await bcrypt.hash(password, 10);
+ 
 
     // Crea el nuevo usuario en la base de datos
     const newUser = await UserModel.create(
