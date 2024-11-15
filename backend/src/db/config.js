@@ -26,9 +26,9 @@ console.log("Tipo de DB_PASSWORD:", typeof process.env.DB_PASSWORD);
 // });
 
 // Nueva configuración usando DATABASE_URL (simplificación de la conexión)
-const initialPool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-});
+// const initialPool = new Pool({
+//   connectionString: process.env.DATABASE_URL,
+// });
 
 // export async function createDatabase() {
 //   try {
