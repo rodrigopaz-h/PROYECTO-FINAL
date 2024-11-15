@@ -29,7 +29,11 @@ const UserModel = {
       const result = await pool.query(query, [email]);
 
       if (result.rows.length === 0) {
+<<<<<<< HEAD
         return false;
+=======
+        throw new Error("Usuario no encontrado");
+>>>>>>> b026c17d3b7fdac4b5c68b244cb444d5462564cc
       }
 
       return result.rows[0]; // Retorna el usuario encontrado

@@ -4,19 +4,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        naranja: '#C95723', // paprika
+        naranja: '#dda399', // paprika
         amarillo: '#F5AF33', // tumeric
         limon: '#C8C346', // lemongrass
         verde: '#1F532F', // caribben
         tierra: '#705D63', // caribben
-        naranjal: '#FFE7DC', // paprika-light
+        naranjal: '#ead9d5', // paprika-light
         amarillol: '#FFF2DB', // tumeric-light
         limonl: '#FFFC8F', // lemongrass-light
         verdel: '#C5FFD7', // caribben-light
         tierral: '#DDDDDD', // caribben-light
+        negro: '#342528'
       },
     },
   },
-  plugins: [require('daisyui')], // Aquí agregas DaisyUI
+  plugins:[
+    require('daisyui'),
+    require('@tailwindcss/forms'),
+  ]
 }
 
