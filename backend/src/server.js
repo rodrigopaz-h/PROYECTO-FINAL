@@ -14,11 +14,11 @@ const PORT = process.env.PORT || 3000;
 //     await createTablesAndViews(); // Crea las tablas y vistas en la base de datos "aromacafe"
 //     console.log("Tablas y vistas SQL creadas correctamente.");
 
-    app.listen(PORT, async() => {
-      console.log(`Servidor escuchando en el puerto ${PORT}`);
-          await createTablesAndViews(); // Crea las tablas y vistas en la base de datos "aromacafe"
+app.listen(PORT, async () => {
+    console.log(`Servidor escuchando en el puerto ${PORT}`);
+    await createTablesAndViews(); // Crea las tablas y vistas en la base de datos "aromacafe"
     console.log("Tablas y vistas SQL creadas correctamente.");
-    });
+});
 //   } catch (error) {
 //     console.error("Error al inicializar la base de datos y las tablas:", error);
 //   }
