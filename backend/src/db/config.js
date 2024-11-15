@@ -30,25 +30,25 @@ const initialPool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
-export async function createDatabase() {
-  try {
-    // Verificar si la base de datos 'aromacafe' existe
-    const result = await initialPool.query(
-      "SELECT 1 FROM pg_database WHERE datname = 'aromacafe'"
-    );
-    if (result.rowCount === 0) {
-      // Crear la base de datos si no existe
-      await initialPool.query("CREATE DATABASE aromacafe");
-      console.log("Base de datos aromacafe creada.");
-    } else {
-      console.log("La base de datos aromacafe ya existe.");
-    }
-  } catch (error) {
-    console.error("Error al crear la base de datos:", error);
-  } finally {
-    await initialPool.end(); // Cerrar la conexión al finalizar
-  }
-}
+// export async function createDatabase() {
+//   try {
+//     // Verificar si la base de datos 'aromacafe' existe
+//     const result = await initialPool.query(
+//       "SELECT 1 FROM pg_database WHERE datname = 'aromacafe'"
+//     );
+//     if (result.rowCount === 0) {
+//       // Crear la base de datos si no existe
+//       await initialPool.query("CREATE DATABASE aromacafe");
+//       console.log("Base de datos aromacafe creada.");
+//     } else {
+//       console.log("La base de datos aromacafe ya existe.");
+//     }
+//   } catch (error) {
+//     console.error("Error al crear la base de datos:", error);
+//   } finally {
+//     await initialPool.end(); // Cerrar la conexión al finalizar
+//   }
+// }
 
 // Conexión a la base de datos "aromacafe"
 // Comentado el uso de configuraciones individuales para reemplazar con DATABASE_URL
@@ -65,7 +65,7 @@ export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
-// Crear tablas y vistas desde archivos SQL
+Crear tablas y vistas desde archivos SQL
 export async function createTablesAndViews() {
   const sqlFiles = [
     "cafes.sql",
