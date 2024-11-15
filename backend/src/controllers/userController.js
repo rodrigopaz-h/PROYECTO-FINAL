@@ -20,7 +20,7 @@ export const createUser = async (req, res) => {
       firstName,
       lastName,
       email,
-      hashedPassword
+      password
     );
 
     // Envía una respuesta exitosa
