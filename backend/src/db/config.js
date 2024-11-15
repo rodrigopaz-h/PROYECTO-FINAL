@@ -93,4 +93,4 @@ export async function createTablesAndViews() {
 //   } catch (error) {
 //     console.error("Error al verificar el contenido de las tablas:", error); // Corregido el error de formato
 //   }
-// }
+}
