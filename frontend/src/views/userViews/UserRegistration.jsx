@@ -26,6 +26,9 @@ const UserRegistration = () => {
       confirmPassword: e.target["confirm-password"].value,
     };
 
+    // Consolas de depuración
+    console.log("Datos del usuario:", userData);
+
     // Validar que las contraseñas coincidan
     if (userData.password !== userData.confirmPassword) {
       setError("Las contraseñas no coinciden");
