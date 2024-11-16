@@ -32,7 +32,7 @@ import { PasswordResetRequest } from "./views/userViews/PasswordResetRequest";
 import { PasswordResetSuccess } from "./views/userViews/PasswordResetSuccess";
 import BlogPage from "./views/generalViews/BlogPage";
 import NotFound from "./views/generalViews/NotFound";
-import UsersBlogPost from "./views/userViews/usersBlogPost";
+import UsersBlogPost from "./views/userViews/UsersBlogPost";
 import CreateBlogPost from "./views/userViews/CreateBlogPost";
 
 function App() {
