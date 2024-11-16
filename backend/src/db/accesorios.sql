@@ -1,5 +1,5 @@
 -- Borrar la tabla accesorios si ya existe
-DROP TABLE IF EXISTS accesorios;
+DROP TABLE IF EXISTS accesorios CASCADE;
 
 -- Crear la tabla accesorios con las mismas columnas que cafes
 CREATE TABLE IF NOT EXISTS accesorios (

@@ -9,9 +9,12 @@ const UserRegistration = () => {
   const navigate = useNavigate();
   const { registerUser } = useContext(UserContext);
   const [error, setError] = useState("");
-  const [successMessage, setSuccessMessage] = useState(""); // Estado para mensaje de éxito
+  const [successMessage, setSuccessMessage] = useState("");
 
-  // Función para manejar el envío del formulario
+  // Expresión regular para validar la contraseña
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -26,8 +29,17 @@ const UserRegistration = () => {
     // Consolas de depuración
     console.log("Datos del usuario:", userData);
 
+    // Validar que las contraseñas coincidan
     if (userData.password !== userData.confirmPassword) {
       setError("Las contraseñas no coinciden");
+      return;
+    }
+
+    // Validar que la contraseña cumpla con los requisitos
+    if (!passwordRegex.test(userData.password)) {
+      setError(
+        "La contraseña debe contener al menos 8 caracteres, incluyendo mayúsculas, minúsculas, números y símbolos."
+      );
       return;
     }
 
@@ -43,7 +55,7 @@ const UserRegistration = () => {
         registerUser(userData);
         setSuccessMessage("Usuario registrado con éxito. Redirigiendo...");
 
-        // Agrega un pequeño retraso antes de la redirección para ver el mensaje
+        // Redirigir después de un breve retraso
         setTimeout(() => {
           navigate("/login");
         }, 2000);
@@ -143,8 +155,8 @@ const UserRegistration = () => {
             required
           />
           <p className="text-xs text-gray-500 mt-1">
-            La contraseña debe contener caracteres en mayúsculas y minúsculas,
-            números y símbolos.
+            La contraseña debe contener al menos 8 caracteres, incluyendo
+            mayúsculas, minúsculas, números y símbolos.
           </p>
         </div>
 
