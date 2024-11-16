@@ -69,7 +69,6 @@ const EditBlogPost = () => {
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow rounded-lg mt-6 mb-6">
       <h2 className="text-2xl font-bold mb-6">Editar Post</h2>
-    
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-gray-700 font-semibold mb-2" htmlFor="title">
