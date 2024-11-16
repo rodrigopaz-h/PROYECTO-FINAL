@@ -1,4 +1,5 @@
-import { pool } from "../db/config.js";
+import pool from "../db/config.js";
+
 // Función para obtener el carrito del usuario por su ID
 export const getCartByUserId = async (userId) => {
   try {

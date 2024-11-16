@@ -1,4 +1,5 @@
-import { pool } from "../db/config.js";
+import pool from "../db/config.js";
+
 
 const BlogModel = {
   // Función para obtener todos los blogs

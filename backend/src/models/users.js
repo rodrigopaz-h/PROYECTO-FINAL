@@ -1,5 +1,6 @@
 import bcrypt from "bcrypt";
-import { pool } from "../db/config.js";
+import pool from "../db/config.js";
+
 
 const UserModel = {
   // Función para crear un usuario en la base de datos

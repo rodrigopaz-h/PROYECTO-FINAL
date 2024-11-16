@@ -5,12 +5,26 @@ import cors from "cors";
 import indexRoutes from "./routes/indexRoutes.js";
 
 dotenv.config();
+
 const app = express();
+
+// Configuración de CORS para múltiples orígenes
+const allowedOrigins = [
+  process.env.FRONTEND_URL, // Producción
+  "http://localhost:5173", // Desarrollo
+];
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true,
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        console.error(`Origen no permitido por CORS: ${origin}`);
+        callback(new Error("No permitido por la política de CORS"));
+      }
+    },
+    credentials: true, // Si necesitas enviar cookies o encabezados de autenticación
   })
 );
 

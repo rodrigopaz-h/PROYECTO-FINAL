@@ -1,4 +1,5 @@
-import { pool } from "../db/config.js";
+import pool from "../db/config.js";
+
 
 const TodosModel = {
   // Obtener todos los productos (cafés y accesorios) de la vista 'todos'
