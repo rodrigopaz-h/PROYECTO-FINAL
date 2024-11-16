@@ -4,7 +4,7 @@ import "./index.css";
 import React from "react";
 import Navbar from "./components/layouts/Navbar";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import PublicationDetail from "./views/generalViews/PublicationDetail";
+import EditBlogPost from "./views/userViews/EditBlogPost";
 import PublicationGallery from "./views/generalViews/PublicationGallery";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./components/layouts/Home";
@@ -32,6 +32,8 @@ import { PasswordResetRequest } from "./views/userViews/PasswordResetRequest";
 import { PasswordResetSuccess } from "./views/userViews/PasswordResetSuccess";
 import BlogPage from "./views/generalViews/BlogPage";
 import NotFound from "./views/generalViews/NotFound";
+import UsersBlogPost from "./views/userViews/usersBlogPost";
+import CreateBlogPost from "./views/userViews/CreateBlogPost";
 
 function App() {
   return (
@@ -66,10 +68,10 @@ function App() {
               <Route path="/blog/:id" element={<BlogDetail />} />
               <Route path="/blog" element={<PublicationGallery />} />
               <Route path="/profile" element={<UserInfo />} />
-              <Route
-                path="/acceso-seguridad"
-                element={<PasswordResetRequest />}
-              />
+              <Route path="/edit-post" element={<UsersBlogPost/>}/>
+              <Route path="/edit-post/:id" element={<EditBlogPost />} />
+              <Route path="/new-post" element={<CreateBlogPost/>}/>
+              <Route path="/acceso-seguridad" element={<PasswordResetRequest />}/>
               <Route path="/enviar" element={<PasswordResetSuccess />} />
               <Route path="/all-blogs" element={<BlogPage />} />
               <Route path="/*" element={<NotFound />} />

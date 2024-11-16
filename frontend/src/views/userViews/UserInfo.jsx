@@ -36,6 +36,9 @@ export const UserInfo = () => {
           <Link to="/acceso-seguridad">
           <a href="#" className="flex items-center px-3 py-2.5 font-semibold hover:text-negro-900 hover:border hover:rounded-full">Acceso y seguridad</a>
           </Link>
+          <Link to="/edit-post">
+          <a href="#" className="flex items-center px-3 py-2.5 font-semibold hover:text-negro-900 hover:border hover:rounded-full">Tu artículos de blog</a>
+          </Link>
           <a href="#" className="flex items-center px-3 py-2.5 font-semibold hover:text-negro-900 hover:border hover:rounded-full">
             Notificaciones
           </a>

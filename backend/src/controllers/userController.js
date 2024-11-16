@@ -13,10 +13,12 @@ export const createUser = async (req, res) => {
       return res.status(400).json({ message: "El usuario ya existe" });
     }
 
- 
+ // Generar un ID único para el usuario
+ const userId = uuidv4();
 
     // Crea el nuevo usuario en la base de datos
     const newUser = await UserModel.create(
+      userId,
       firstName,
       lastName,
       email,
