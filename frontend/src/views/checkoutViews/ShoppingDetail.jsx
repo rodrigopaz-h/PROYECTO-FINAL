@@ -24,7 +24,7 @@ export default function ShoppingDetail() {
                 <div className="flex justify-between mb-4">
                     <div className="flex items-center">
                         <img
-                        src={item.imagen}
+                        src={item.imagen_url}
                         alt="Product Image"
                         className="w-12 sm:w-16 md:w-20 lg:w-24 xl:w-32 h-auto mr-4"
                         />

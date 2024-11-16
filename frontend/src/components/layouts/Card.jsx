@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 export default function Card({ producto, agregarAlCarrito }) {
   if (!producto || !producto.nombre) return null;
 
+
   return (
     <div className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
       <Link to={`/producto/${producto.id}`}>

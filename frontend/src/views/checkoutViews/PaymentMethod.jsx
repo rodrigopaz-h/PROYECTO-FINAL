@@ -6,9 +6,9 @@ export default function PaymentMethod() {
 
   return (
     <div>
-        <h2 className="text-xl font-semibold text-gray-700 dark:text-white mb-2">Payment Information</h2>
+        <h2 className="text-xl font-semibold text-gray-700 dark:text-white mb-2">Información de compra</h2>
         <div className="mt-4">
-        <label htmlFor="card_number" className="block text-gray-700 dark:text-white mb-1">Card Number</label>
+        <label htmlFor="card_number" className="block text-gray-700 dark:text-white mb-1">Número de tarjeta</label>
         <input
             type="text"
             id="card_number"
@@ -18,7 +18,7 @@ export default function PaymentMethod() {
 
         <div className="grid grid-cols-2 gap-4 mt-4">
         <div>
-            <label htmlFor="exp_date" className="block text-gray-700 dark:text-white mb-1">Expiration Date</label>
+            <label htmlFor="exp_date" className="block text-gray-700 dark:text-white mb-1">Fecha de expiración</label>
             <input
             type="text"
             id="exp_date"

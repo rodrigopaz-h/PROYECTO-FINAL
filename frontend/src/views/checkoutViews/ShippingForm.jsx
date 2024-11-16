@@ -10,7 +10,7 @@ export default function ShippingForm() {
                 <h2 className="text-xl font-semibold text-gray-700 dark:text-white mb-2">Dirección de envío</h2>
                 <div className="grid grid-cols-2 gap-4">
                     <div>
-                        <label htmlFor="first_name" className="block text-gray-700 dark:text-white mb-1">First Name</label>
+                        <label htmlFor="first_name" className="block text-gray-700 dark:text-white mb-1">Nombre</label>
                         <input
                             type="text"
                             id="first_name"
@@ -18,7 +18,7 @@ export default function ShippingForm() {
                         />
                     </div>
                     <div>
-                        <label htmlFor="last_name" className="block text-gray-700 dark:text-white mb-1">Last Name</label>
+                        <label htmlFor="last_name" className="block text-gray-700 dark:text-white mb-1">Apellido</label>
                         <input
                             type="text"
                             id="last_name"
