@@ -51,6 +51,44 @@ const UserModel = {
       throw new Error("Error al obtener usuarios");
     }
   },
+
+  // Función para obtener un usuario por ID
+async findById(id) {
+  try {
+    const query = `SELECT * FROM users WHERE id = $1`;
+    const result = await pool.query(query, [id]);
+
+    if (result.rows.length === 0) {
+      return null;
+    }
+
+    return result.rows[0];
+  } catch (error) {
+    console.error("Error al buscar usuario por ID:", error);
+    throw new Error("Error al buscar usuario por ID");
+  }
+},
+
+// Función para actualizar un usuario
+async update(id, { firstName, lastName, email, password }) {
+  try {
+    const query = `
+      UPDATE users 
+      SET first_name = $1, last_name = $2, email = $3, password = $4
+      WHERE id = $5 
+      RETURNING *`;
+    const values = [firstName, lastName, email, password, id];
+
+    const result = await pool.query(query, values);
+    return result.rows[0];
+  } catch (error) {
+    console.error("Error al actualizar el usuario:", error);
+    throw new Error("Error al actualizar el usuario");
+  }
+},
+
 };
+
+
 
 export default UserModel;

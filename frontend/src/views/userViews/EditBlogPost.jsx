@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Title from "../../components/layouts/Title";
 
 const EditBlogPost = () => {
   const { id } = useParams(); // Obtener el ID del post desde la URL
@@ -67,92 +68,96 @@ const EditBlogPost = () => {
   }
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white shadow rounded-lg mt-6 mb-6">
-      <h2 className="text-2xl font-bold mb-6">Editar Post</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block text-gray-700 font-semibold mb-2" htmlFor="title">
-            Título
-          </label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={post.title}
-            onChange={handleChange}
-            className="w-full px-4 py-2 border rounded-md"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 font-semibold mb-2" htmlFor="description">
-            Descripción
-          </label>
-          <textarea
-            id="description"
-            name="description"
-            value={post.description}
-            onChange={handleChange}
-            rows="5"
-            className="w-full px-4 py-2 border rounded-md"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 font-semibold mb-2" htmlFor="image">
-            Subir Imagen
-          </label>
-          <input
-            type="file"
-            id="image"
-            name="image"
-            accept="image/*"
-            onChange={handleImageUpload}
-            className="w-full px-4 py-2 border rounded-md"
-          />
-        </div>
-        {imagePreview && (
-          <div className="mb-4">
-            <img src={imagePreview} alt="Previsualización" className="w-full rounded-md" />
-          </div>
-        )}
-        <div className="flex justify-between">
-          <button
-            type="button"
-            onClick={() => setPreviewModal(true)} // Mostrar modal de previsualización
-            className="px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700"
-          >
-            Previsualizar
-          </button>
-          <button
-            type="submit"
-            className="px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
-          >
-            Guardar Cambios
-          </button>
-        </div>
-      </form>
+    <>
+     <Title title="Editar artículo" />
+     <div className="max-w-2xl mx-auto p-6 bg-white shadow rounded-lg mt-6 mb-6">
+     
+     <form onSubmit={handleSubmit}>
+       <div className="mb-4">
+         <label className="block text-gray-700 font-semibold mb-2" htmlFor="title">
+           Título
+         </label>
+         <input
+           type="text"
+           id="title"
+           name="title"
+           value={post.title}
+           onChange={handleChange}
+           className="w-full px-4 py-2 border rounded-md"
+           required
+         />
+       </div>
+       <div className="mb-4">
+         <label className="block text-gray-700 font-semibold mb-2" htmlFor="description">
+           Descripción
+         </label>
+         <textarea
+           id="description"
+           name="description"
+           value={post.description}
+           onChange={handleChange}
+           rows="5"
+           className="w-full px-4 py-2 border rounded-md"
+           required
+         />
+       </div>
+       <div className="mb-4">
+         <label className="block text-gray-700 font-semibold mb-2" htmlFor="image">
+           Subir Imagen
+         </label>
+         <input
+           type="file"
+           id="image"
+           name="image"
+           accept="image/*"
+           onChange={handleImageUpload}
+           className="w-full px-4 py-2 border rounded-md"
+         />
+       </div>
+       {imagePreview && (
+         <div className="mb-4">
+           <img src={imagePreview} alt="Previsualización" className="w-full rounded-md" />
+         </div>
+       )}
+       <div className="flex justify-between">
+         <button
+           type="button"
+           onClick={() => setPreviewModal(true)} // Mostrar modal de previsualización
+           className="px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700"
+         >
+           Previsualizar
+         </button>
+         <button
+           type="submit"
+           className="px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+         >
+           Guardar Cambios
+         </button>
+       </div>
+     </form>
 
-      {/* Modal de previsualización */}
-      {previewModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full">
-            <h2 className="text-xl font-bold mb-4">Previsualización</h2>
-            <img src={imagePreview} alt="Previsualización" className="w-full rounded-md mb-4" />
-            <h3 className="text-lg font-semibold">{post.title}</h3>
-            <p className="text-gray-600 mt-2">{post.description}</p>
-            <div className="flex justify-end mt-4">
-              <button
-                onClick={() => setPreviewModal(false)}
-                className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700"
-              >
-                Cerrar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+     {/* Modal de previsualización */}
+     {previewModal && (
+       <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+         <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full">
+           <h2 className="text-xl font-bold mb-4">Previsualización</h2>
+           <img src={imagePreview} alt="Previsualización" className="w-full rounded-md mb-4" />
+           <h3 className="text-lg font-semibold">{post.title}</h3>
+           <p className="text-gray-600 mt-2">{post.description}</p>
+           <div className="flex justify-end mt-4">
+             <button
+               onClick={() => setPreviewModal(false)}
+               className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700"
+             >
+               Cerrar
+             </button>
+           </div>
+         </div>
+       </div>
+     )}
+   </div>
+    </>
+   
   );
 };
 

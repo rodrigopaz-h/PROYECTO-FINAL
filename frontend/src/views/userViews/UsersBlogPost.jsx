@@ -2,6 +2,7 @@ import Button from "../../components/layouts/Button";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Title from "../../components/layouts/Title";
 
 const UsersBlogPost = () => {
   const [blogs, setBlogs] = useState([]);
@@ -41,10 +42,8 @@ const UsersBlogPost = () => {
   return (
     <section className="py-12 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <h2 className="font-manrope text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-12">
-          Tus artículos
-        </h2>
-        <Button to="/new-post" text="Crear nuevo post" />
+        <Title title="Tus artículos"/>
+        <Button to="/new-post" text="Crear nuevo post" bg="bg-amarillo" />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.slice(0, mostrarTodo ? blogs.length : 8).map((articulo, index) => (
             <div

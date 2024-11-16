@@ -4,28 +4,76 @@ import { useEffect,useState } from "react";
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Button from "../../components/layouts/Button";
+import Title from "../../components/layouts/Title";
+import { useNavigate } from "react-router-dom";
 
 export const UserInfo = () => {
-
-  const [userInfo, setUserInfo] = useState([])
+  const navigate = useNavigate();
+  const [userInfo, setUserInfo] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    profession: "",
+    bio: "",
+  });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchUserData = async () => {
+      const token = localStorage.getItem("authToken");
+      if (!token) {
+        navigate("/login"); // Redirige al login si no hay token
+        return;
+      }
+
       try {
-        const response = await axios.get("http://localhost:3000/users"); 
+        const response = await axios.get("http://localhost:3000/users/profile", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
         setUserInfo(response.data);
       } catch (error) {
-        console.error("Error al obtener users:", error);
+        console.error("Error al obtener datos del usuario:", error);
+        setError("No se pudieron cargar los datos del usuario.");
+      } finally {
+        setLoading(false);
       }
     };
-    fetchUsers();
-  }, []);
 
-  console.log(userInfo)
+    fetchUserData();
+  }, [navigate]);
+console.log(userInfo)
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUserInfo({ ...userInfo, [name]: value });
+  };
+
+  const handleSave = async () => {
+    const token = localStorage.getItem("authToken");
+    try {
+      await axios.put("http://localhost:3000/users/profile", userInfo, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      alert("Perfil actualizado con éxito");
+    } catch (error) {
+      console.error("Error al actualizar el perfil:", error);
+      setError("No se pudo actualizar el perfil.");
+    }
+  };
+
+  if (loading) {
+    return <p>Cargando...</p>;
+  };
+  if (error) {
+    return <p>{error}</p>;
+  };
 
   return (
    <>
+    <Title title="Tu perfil" />
     <div className="bg-white w-full flex flex-col gap-5 px-3 md:px-16 lg:px-28 md:flex-row text-[#161931]">
+     
       {/* Sidebar */}
       <aside className="hidden py-4 md:w-1/3 lg:w-1/4 md:block">
         <div className="sticky flex flex-col gap-2 p-4 text-sm border-r border-negro-100 top-12">
@@ -142,8 +190,85 @@ export const UserInfo = () => {
             </div>
           </div>
         </div>
+        <div className="bg-white w-full flex flex-col gap-5 px-3 md:px-16 lg:px-28 md:flex-row text-[#161931]">
+        <main className="w-full min-h-screen py-1">
+          <div className="p-2 md:p-4">
+            <h2 className="pl-6 text-2xl font-bold sm:text-xl">Perfil público</h2>
+            <div className="grid max-w-2xl mx-auto mt-8">
+              <div className="mb-6">
+                <label htmlFor="firstName" className="block mb-2 text-sm font-medium text-negro-900">
+                  Primer nombre
+                </label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={userInfo.firstName}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 border rounded-md"
+                />
+              </div>
+              <div className="mb-6">
+                <label htmlFor="lastName" className="block mb-2 text-sm font-medium text-negro-900">
+                  Apellido
+                </label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={userInfo.lastName}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 border rounded-md"
+                />
+              </div>
+              <div className="mb-6">
+                <label htmlFor="email" className="block mb-2 text-sm font-medium text-negro-900">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={userInfo.email}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 border rounded-md"
+                />
+              </div>
+              <div className="mb-6">
+                <label htmlFor="profession" className="block mb-2 text-sm font-medium text-negro-900">
+                  Cargo
+                </label>
+                <input
+                  type="text"
+                  id="profession"
+                  name="profession"
+                  value={userInfo.profession}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 border rounded-md"
+                />
+              </div>
+              <div className="mb-6">
+                <label htmlFor="bio" className="block mb-2 text-sm font-medium text-negro-900">
+                  Biografía
+                </label>
+                <textarea
+                  id="bio"
+                  name="bio"
+                  value={userInfo.bio}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 border rounded-md"
+                  rows="4"
+                />
+              </div>
+              <Button text="Guardar" onClick={handleSave} />
+            </div>
+          </div>
+        </main>
+      </div>
       </main>
     </div>
     </>
   );
-};
+}
+
+

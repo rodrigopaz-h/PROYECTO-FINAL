@@ -13,12 +13,10 @@ export const createUser = async (req, res) => {
       return res.status(400).json({ message: "El usuario ya existe" });
     }
 
- // Generar un ID único para el usuario
- const userId = uuidv4();
+ 
 
     // Crea el nuevo usuario en la base de datos
     const newUser = await UserModel.create(
-      userId,
       firstName,
       lastName,
       email,
@@ -70,7 +68,7 @@ export async function loginUser(req, res) {
     if (!isMatch) {
       return res.status(401).send("Incorrect password");
     }
-    console.log("JWT_SECRET:", process.env.JWT_SECRET);
+  console.log("JWT_SECRET:", process.env.JWT_SECRET);
     // Generar el token con el ID del usuario y su email
     const token = jwt.sign(
       { id: user.id, email: user.email },
@@ -109,32 +107,26 @@ export async function showUserProfile(req, res) {
 
 // Función para editar el perfil del usuario
 export async function updateUserProfile(req, res) {
-  const userId = req.user.id;
-  const { firstName, lastName, email, password } = req.body;
-
   try {
-    const user = await UserModel.findById(userId); // Corregido a UserModel
+    const userId = req.user.id;
+    const { firstName, lastName, email, profession, bio } = req.body;
 
-    if (!user) {
-      return res.status(404).send("User not found");
-    }
-
-    let updatedPassword = user.password;
-    if (password) {
-      const salt = await bcrypt.genSalt(10);
-      updatedPassword = await bcrypt.hash(password, salt);
-    }
-
+    // Actualiza los datos del usuario
     const updatedUser = await UserModel.update(userId, {
       firstName,
       lastName,
       email,
-      password: updatedPassword,
+      profession,
+      bio,
     });
 
-    res.json(updatedUser);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Server error");
+    if (!updatedUser) {
+      return res.status(404).json({ message: "Usuario no encontrado" });
+    }
+
+    res.json({ message: "Perfil actualizado con éxito", user: updatedUser });
+  } catch (error) {
+    console.error("Error al actualizar el perfil del usuario:", error);
+    res.status(500).json({ message: "Error al actualizar el perfil del usuario" });
   }
 }
