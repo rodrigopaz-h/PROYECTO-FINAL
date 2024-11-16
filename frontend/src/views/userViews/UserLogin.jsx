@@ -24,7 +24,7 @@ const UserLogin = () => {
       // Si el inicio de sesión es exitoso, guarda el token y redirige
       if (response.data.token) {
         localStorage.setItem("authToken", response.data.token);
-        navigate('/todos');
+        navigate('/profile'); // Cambiar aquí a la ruta /profile
       } else {
         setError("Error de autenticación: token no recibido");
       }
